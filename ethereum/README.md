@@ -25,7 +25,7 @@ If you want to get all the fields associated with ethereum `Node`:
 $ kubectl explain nodes.ethereum
 ```
 
-For a comprehensive reference on Ethereum `Node`, check our [ethereum reference](./reference/ethereum)
+For a comprehensive reference on Ethereum `Node`, check our [ethereum reference](../reference/ethereum)
 
 ## Multi-client Support
 
