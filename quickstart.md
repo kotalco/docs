@@ -1,5 +1,6 @@
 Create `rinkeby.yaml` manifest that describes an Ethereum node which uses `go-ethereum` client, connecting to rinkeby network, and enabling JSON-RPC server:
 
+{% code title="rinkeby.yaml" %}
 ```yaml
 apiVersion: ethereum.kotal.io/v1alpha1
 kind: Node
@@ -10,6 +11,7 @@ spec:
   client: geth
   rpc: true
 ```
+{% endcode %}
 
 Deploy the node using kubectl:
 
