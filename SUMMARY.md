@@ -9,7 +9,7 @@
 
 * [Ethereum](ethereum/README.md)
     * [Deploy Public Ethereum Node](ethereum/public.md)
-    * [Deploy Public Ethereum Node](ethereum/private.md)
+    * [Deploy Private Ethereum Node](ethereum/private.md)
 
 * [Ethereum 2.0](ethereum2/README.md)
     * [Deploy Beacon Node](ethereum2/beacon.md)
