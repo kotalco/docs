@@ -40,7 +40,7 @@ NAME                 CLIENT   Consensus   Network
 rinkeby-besu-node    besu     poa         rinkeby
 ```
 
-# Fetch Node Logs
+## Fetch Node Logs
 
 Get the pods that has been created by Kotal for the node:
 
@@ -57,7 +57,7 @@ Get the logs of the running node:
 $ kubectl logs -f rinkeby-besu-node-0
 ```
 
-# Call JSON-RPC Method
+## Call JSON-RPC Method
 
 Let's update our node by enabling JSON-RPC HTTP server:
 
