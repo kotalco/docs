@@ -1,6 +1,11 @@
+## Deploy Rinkeby Node
+
+{% hint style="warning" %}
+Kotal will reject your node if you set both `spec.genesis` and `spec.network`. Use `spec.network` if you're joining a public network, use `spec.genesis` if you're joining private network.
+{% endhint %}
+
 Rinkeby is a Proof of Authority public Ethereum test network, used by developers to test their dApps.
 
-## Deploy Rinkeby Node
 
 The following manifest describes an Ethereum node that joins rinkeby network `network: rinkeby`, and uses Hyperledger Besu client `client: besu`:
 

@@ -1,17 +1,8 @@
-Using Ethereum `Node` custom resource, you can deploy a node that joins a public network by setting `spec.network` parameter, or setting `spec.genesis` to start or join private network.
 
-In this example, we will create private Proof of Authority network using Clique consensus algorithm.
+{% hint style="warning" %}
+Kotal will reject your node if you set both `spec.genesis` and `spec.network`. Use `spec.network` if you're joining a public network, use `spec.genesis` if you're joining private network.
+{% endhint %}
 
-```yaml
-apiVersion: ethereum.kotal.io/v1alpha1
-kind: Node
-metadata:
-  name: my-node
-spec:
-  network: # public network to join
-  genesis: # private network genesis
-  # can't set both .network and .genesis
-```
 
 ## Deploy Private Network Node
 
