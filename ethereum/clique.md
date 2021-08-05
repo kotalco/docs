@@ -7,7 +7,9 @@ Kotal will reject your node if you set both `spec.genesis` and `spec.network`. U
 
 {% hint style="danger" %}
 
-In this tutorial we will use the following private keys and their corresponding addresses. **DON'T** use these keys in production.
+In this tutorial we will use the following private keys and their corresponding addresses. 
+
+**DON'T** use these keys in production.
 
 | Address                                    | Private Key                                                      |
 | ------------------------------------------ | ---------------------------------------------------------------- |
@@ -39,9 +41,31 @@ spec:
 ```
 {% endcode %}
 
-In this node, we're using Hyperledger besu client `client: besu`, and we've loaded the node private key from Kubernetes secretd called `besu-clique-nodekey`.
+In this node, we're using Hyperledger besu client `client: besu`, and we're loading the node private key from Kubernetes secretd called `besu-clique-nodekey`.
 
+The node private key will give the node a unique identity and node URL, and will allow the node to generate blocks, because the address `0xbAa5f05af4A67A467cEcA89085f162aFb4206Aaa` that's corresponding to the node private key is in the initial block signers.
 
+We're defining a genesis block that uses the value `4444` as network and chain identifier, and we start the chain with 3 signers as defined by `spec.genesis.clique.signers`.
+
+This node private key secret can be created by:
+
+```bash
+$ kubectl create secret generic besu-clique-nodekey --from-literal=key=fb5411342ae51291447515c89bcf6a057e3dbd0b51e060c45cb73406c38f851d
+
+secret/besu-clique-nodekey created
+```
+
+{% hint style="info" %}
+Private key must **not** start with `0x`, and must be stored in secret data field called `key`.
+{% endhint %}
+
+Let's deploy the node:
+
+```bash
+$ kubectl apply -f clique.yaml
+
+node.ethereum.kotal.io/besu-clique-node created
+```
 
 
 ## Deploy a Second Node
