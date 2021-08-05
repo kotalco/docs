@@ -67,6 +67,33 @@ $ kubectl apply -f clique.yaml
 node.ethereum.kotal.io/besu-clique-node created
 ```
 
+Kotal operator will notice your `besu-clique-node` and will create all the necessary pods, persistent volumes, services, configmaps, and secrets neccessary.
+
+You can fetch the deployed Ethereum `Node` using:
+
+```bash
+$ kubectl get nodes.ethereum
+
+NAME                 CLIENT   Consensus   Network
+besu-clique-node     besu     poa         private
+```
+
+## Fetch Node Logs
+
+Get the pods that has been created by Kotal for the node:
+
+```bash
+$ kubectl get pods
+
+NAME                  READY   STATUS    RESTARTS   AGE
+besu-clique-node-0    1/1     Running   0          1m
+```
+
+Get the logs of the running node:
+
+```bash
+$ kubectl logs -f besu-clique-node-0
+```
 
 ## Deploy a Second Node
 
