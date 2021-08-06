@@ -139,5 +139,25 @@ $ kubectl create secret generic geth-clique-account-key --from-literal=key=153b1
 $ kubectl create secret generic geth-clique-account-password --from-literal=password=s3cr3t
 ```
 
+Deploy the second node using:
+
+```bash
+$ kubectl apply -f geth-clique-node.yaml
+
+node.ethereum.kotal.io/geth-clique-node created
+```
+
+Kotal operator will notice your second `geth-clique-node` and will create all the necessary pods, persistent volumes, services, configmaps, and secrets neccessary.
+
+You can fetch the deployed Ethereum `Node`s using:
+
+```bash
+$ kubectl get nodes.ethereum
+
+NAME                 CLIENT   Consensus   Network
+besu-clique-node     besu     poa         private
+geth-clique-node     geth     poa         private
+```
+
 ## Call JSON-RPC Method `net_peerCount`
 
