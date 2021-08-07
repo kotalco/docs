@@ -204,13 +204,13 @@ You will get JSON result similar to the following:
 Deploy a third node that uses Nethermind client, and signing blocks using the third key in the signers list `spec.genesis.clique.signers`. Nethermind client is similar to geth, you will import signer account private key and password from kubernetes secrets, and use the same genesis as the other nodes.
 
 
-Finally you can delete the node by:
+Finally you can delete all the nodes by:
 
 ```bash
 $ kubectl delete nodes.ethereum --all
 
-node.ethereum.kotal.io/besu-clique-node created
-node.ethereum.kotal.io/geth-clique-node created
+node.ethereum.kotal.io "besu-clique-node" deleted
+node.ethereum.kotal.io "geth-clique-node" deleted
 ```
 
 Kubernetes garbage collector will delete all the resources that has been created by Kotal Ethereum `Node` controller.
