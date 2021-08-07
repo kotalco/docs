@@ -130,7 +130,11 @@ spec:
 ```
 {% endcode %}
 
-In this node, we're using go-ethereum client `client: geth`, starting the PoA consensus engine `miner: true`, setting the second address in the genesis signers list `spec.genesis.clique.signers` as the coinbase `coinbase: "0xc1381ED43B327e3C7A1ADb21285f1e9cB82Bc00d"`, enabling JSON-RPC HTTP server `rpc: true`, and loading the signer account private key and password from kubernetes secrets `privatekeySecretName: ...` and `passwordSecretName: ...`.
+In this node, we're using go-ethereum client `client: geth`, starting the PoA consensus engine `miner: true`, setting the second address in the genesis signers list `spec.genesis.clique.signers` as the coinbase `coinbase: "0xc1381ED43B327e3C7A1ADb21285f1e9cB82Bc00d"`, enabling JSON-RPC HTTP server `rpc: true`, and loading the signer account private key and password from kubernetes secrets `privatekeySecretName: ...` and `passwordSecretName: ...`. We're connecting to the first node using `staticNodes` option which accepts `Node` name or enode url.
+
+{% hint style="info" %}
+`staticNodes` accept `Node` name or enode URL. `Node` name has the format of `name.namespace`, namespace is optional if `Node` is in the same namespace. If the node doesn't exist, or is not up and running yet, Kotal will not raise an error.
+{% endhint %}
 
 You can create the private key and password secrets using:
 
@@ -160,4 +164,54 @@ geth-clique-node     geth     poa         private
 ```
 
 ## Call JSON-RPC Method `net_peerCount`
+
+Get the pods that has been created by Kotal for the node:
+
+```bash
+$ kubectl get pods
+
+NAME                  READY   STATUS    RESTARTS   AGE
+besu-clique-node-0    1/1     Running   0          1m
+geth-clique-node-0    1/1     Running   0          1m
+```
+
+Forward localhost:8545 calls to the node pod:
+
+```bash
+$ kubectl port-forward geth-clique-node-0 8545
+
+Forwarding from 127.0.0.1:8545 -> 8545
+```
+
+In another terminal window call `net_peerCount` JSON-RPC method
+
+```bash
+$ curl -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":32}' http://127.0.0.1:8545
+```
+
+You will get JSON result similar to the following:
+
+```JSON
+{
+  "jsonrpc" : "2.0",
+  "id" : 32,
+  "result" : "0x1"
+}
+```
+
+## Homework
+
+Deploy a third node that uses Nethermind client, and signing blocks using the third key in the signers list `spec.genesis.clique.signers`. Nethermind client is similar to geth, you will import signer account private key and password from kubernetes secrets, and use the same genesis as the other nodes.
+
+
+Finally you can delete the node by:
+
+```bash
+$ kubectl delete nodes.ethereum --all
+
+node.ethereum.kotal.io/besu-clique-node created
+node.ethereum.kotal.io/geth-clique-node created
+```
+
+Kubernetes garbage collector will delete all the resources that has been created by Kotal Ethereum `Node` controller.
 
