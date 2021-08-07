@@ -67,7 +67,7 @@ $ kubectl apply -f besu-clique-node.yaml
 node.ethereum.kotal.io/besu-clique-node created
 ```
 
-Kotal operator will notice your `besu-clique-node` and will create all the necessary pods, persistent volumes, services, configmaps, and secrets neccessary.
+Kotal operator will notice your `besu-clique-node` and will create all the necessary pods, persistent volumes, services, configmaps, and secrets.
 
 You can fetch the deployed Ethereum `Node` using:
 
@@ -151,7 +151,7 @@ $ kubectl apply -f geth-clique-node.yaml
 node.ethereum.kotal.io/geth-clique-node created
 ```
 
-Kotal operator will notice your second `geth-clique-node` and will create all the necessary pods, persistent volumes, services, configmaps, and secrets neccessary.
+Kotal operator will notice your second `geth-clique-node` and will create all the necessary pods, persistent volumes, services, configmaps, and secrets.
 
 You can fetch the deployed Ethereum `Node`s using:
 
