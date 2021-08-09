@@ -111,6 +111,7 @@ metadata:
   name: geth-ethash-node
 spec:
   client: geth
+  rpc: true
   miner: true
   coinbase: "0xc1381ED43B327e3C7A1ADb21285f1e9cB82Bc00d"
   import:
@@ -125,7 +126,7 @@ spec:
 ```
 {% endcode %}
 
-In this node, we're using go-ethereum client `client: geth`, turn on Proof of Work mining `miner: true`, set address that will collect block reward using `coinbase`, and loading the miner account private key and password from kubernetes secrets `privatekeySecretName: ...` and `passwordSecretName: ...`. We're connecting to the first node using `staticNodes` option which accepts `Node` name or enode url.
+In this node, we're using go-ethereum client `client: geth`, enabling JSON-RPC server so we can query number of peers later in this tutorial, turning on Proof of Work mining `miner: true`, setting the address that will collect block reward using `coinbase`, and loading the miner account private key and password from kubernetes secrets `privatekeySecretName: ...` and `passwordSecretName: ...`. We're connecting to the first node using `staticNodes` option which accepts `Node` name or enode url.
 
 {% hint style="info" %}
 `staticNodes` accept `Node` name or enode URL. `Node` name has the format of `name.namespace`, namespace is optional if `Node` is in the same namespace. If the node doesn't exist, or is not up and running yet, Kotal will not raise an error.
