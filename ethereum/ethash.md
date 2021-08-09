@@ -1,5 +1,5 @@
 {% hint style="warning" %}
-Kotal will reject your node if you set both `spec.genesis` and `spec.network`. Use `spec.network` if you're joining a public network, use `spec.genesis` if you're joining private network.
+Kotal will reject your node if you set both `spec.genesis` and `spec.network`. Use `spec.network` if you're joining a public network, or use `spec.genesis` if you're joining private network.
 {% endhint %}
 
 ## Deploy Private Network Node
@@ -29,6 +29,7 @@ metadata:
 spec:
   client: besu
   nodePrivatekeySecretName: besu-ethash-nodekey
+  rpc: true
   miner: true
   coinbase: "0xbAa5f05af4A67A467cEcA89085f162aFb4206Aaa"
   genesis:
@@ -112,7 +113,6 @@ spec:
   client: geth
   miner: true
   coinbase: "0xc1381ED43B327e3C7A1ADb21285f1e9cB82Bc00d"
-  rpc: true
   import:
     privatekeySecretName: geth-ethash-account-key
     passwordSecretName: geth-ethash-account-password
@@ -125,7 +125,7 @@ spec:
 ```
 {% endcode %}
 
-In this node, we're using go-ethereum client `client: geth`, turn on Proof of Work mining `miner: true`, set address that will collect block reward using `coinbase`, enabling JSON-RPC HTTP server `rpc: true`, and loading the miner account private key and password from kubernetes secrets `privatekeySecretName: ...` and `passwordSecretName: ...`. We're connecting to the first node using `staticNodes` option which accepts `Node` name or enode url.
+In this node, we're using go-ethereum client `client: geth`, turn on Proof of Work mining `miner: true`, set address that will collect block reward using `coinbase`, and loading the miner account private key and password from kubernetes secrets `privatekeySecretName: ...` and `passwordSecretName: ...`. We're connecting to the first node using `staticNodes` option which accepts `Node` name or enode url.
 
 {% hint style="info" %}
 `staticNodes` accept `Node` name or enode URL. `Node` name has the format of `name.namespace`, namespace is optional if `Node` is in the same namespace. If the node doesn't exist, or is not up and running yet, Kotal will not raise an error.
@@ -173,7 +173,7 @@ geth-ethash-node-0    1/1     Running   0          1m
 Forward localhost:8545 calls to the node pod:
 
 ```bash
-$ kubectl port-forward geth-ethash-node-0 8545
+$ kubectl port-forward besu-ethash-node-0 8545
 
 Forwarding from 127.0.0.1:8545 -> 8545
 ```
