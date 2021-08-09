@@ -39,7 +39,7 @@ spec:
 ```
 {% endcode %}
 
-In this node, we're using Hyperledger besu client `client: besu`, enabling JSON-RPC server so we can query number of peers later in this tutorial, turning on Proof of Work mining `miner: true`, setting the address that will collect block reward using `coinbase`, and we're loading the node private key from Kubernetes secretd called `besu-ethash-nodekey`, this is the private from which the coinbase address is derived.
+In this node, we're using Hyperledger besu client `client: besu`, enabling JSON-RPC server `rpc: true` so we can query number of peers later in this tutorial, turning on Proof of Work mining `miner: true`, setting the address that will collect block reward using `coinbase`, and we're loading the node private key from Kubernetes secretd called `besu-ethash-nodekey`, this is the private from which the coinbase address is derived.
 
 We're defining a genesis block that uses the value `4444` as network and chain identifier, and used `ethash` proof of work consensus engine.
 

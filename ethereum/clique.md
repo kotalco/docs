@@ -30,6 +30,7 @@ metadata:
 spec:
   client: besu
   nodePrivatekeySecretName: besu-clique-nodekey
+  rpc: true
   genesis:
     chainId: 4444
     networkId: 4444
@@ -41,7 +42,7 @@ spec:
 ```
 {% endcode %}
 
-In this node, we're using Hyperledger besu client `client: besu`, and we're loading the node private key from Kubernetes secretd called `besu-clique-nodekey`.
+In this node, we're using Hyperledger besu client `client: besu`, enabling JSON-RPC server `rpc: true` so we can query number of peers later in this tutorial, and we're loading the node private key from Kubernetes secretd called `besu-clique-nodekey`.
 
 The node private key will give the node a unique identity and node URL, and will allow the node to generate blocks, because the address `0xbAa5f05af4A67A467cEcA89085f162aFb4206Aaa` that's corresponding to the node private key is in the initial block signers.
 
@@ -113,7 +114,6 @@ spec:
   client: geth
   miner: true
   coinbase: "0xc1381ED43B327e3C7A1ADb21285f1e9cB82Bc00d"
-  rpc: true
   import:
     privatekeySecretName: geth-clique-account-key
     passwordSecretName: geth-clique-account-password
@@ -130,7 +130,7 @@ spec:
 ```
 {% endcode %}
 
-In this node, we're using go-ethereum client `client: geth`, starting the PoA consensus engine `miner: true`, setting the second address in the genesis signers list `spec.genesis.clique.signers` as the coinbase `coinbase: "0xc1381ED43B327e3C7A1ADb21285f1e9cB82Bc00d"`, enabling JSON-RPC HTTP server `rpc: true`, and loading the signer account private key and password from kubernetes secrets `privatekeySecretName: ...` and `passwordSecretName: ...`. We're connecting to the first node using `staticNodes` option which accepts `Node` name or enode url.
+In this node, we're using go-ethereum client `client: geth`, starting the PoA consensus engine `miner: true`, setting the second address in the genesis signers list `spec.genesis.clique.signers` as the coinbase `coinbase: "0xc1381ED43B327e3C7A1ADb21285f1e9cB82Bc00d"`, and loading the signer account private key and password from kubernetes secrets `privatekeySecretName: ...` and `passwordSecretName: ...`. We're connecting to the first node using `staticNodes` option which accepts `Node` name or enode url.
 
 {% hint style="info" %}
 `staticNodes` accept `Node` name or enode URL. `Node` name has the format of `name.namespace`, namespace is optional if `Node` is in the same namespace. If the node doesn't exist, or is not up and running yet, Kotal will not raise an error.
@@ -178,7 +178,7 @@ geth-clique-node-0    1/1     Running   0          1m
 Forward localhost:8545 calls to the node pod:
 
 ```bash
-$ kubectl port-forward geth-clique-node-0 8545
+$ kubectl port-forward besu-clique-node-0 8545
 
 Forwarding from 127.0.0.1:8545 -> 8545
 ```
