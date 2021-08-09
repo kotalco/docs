@@ -39,7 +39,7 @@ spec:
 ```
 {% endcode %}
 
-In this node, we're using Hyperledger besu client `client: besu`, turn on Proof of Work mining `miner: true`, set address that will collect block reward using `coinbase`,  and we're loading the node private key from Kubernetes secretd called `besu-ethash-nodekey`, this is the private from which the coinbase address is derived.
+In this node, we're using Hyperledger besu client `client: besu`, enabling JSON-RPC server so we can query number of peers later in this tutorial, turning on Proof of Work mining `miner: true`, setting the address that will collect block reward using `coinbase`, and we're loading the node private key from Kubernetes secretd called `besu-ethash-nodekey`, this is the private from which the coinbase address is derived.
 
 We're defining a genesis block that uses the value `4444` as network and chain identifier, and used `ethash` proof of work consensus engine.
 
@@ -126,7 +126,7 @@ spec:
 ```
 {% endcode %}
 
-In this node, we're using go-ethereum client `client: geth`, enabling JSON-RPC server so we can query number of peers later in this tutorial, turning on Proof of Work mining `miner: true`, setting the address that will collect block reward using `coinbase`, and loading the miner account private key and password from kubernetes secrets `privatekeySecretName: ...` and `passwordSecretName: ...`. We're connecting to the first node using `staticNodes` option which accepts `Node` name or enode url.
+In this node, we're using go-ethereum client `client: geth`, turning on Proof of Work mining `miner: true`, setting the address that will collect block reward using `coinbase`, and loading the miner account private key and password from kubernetes secrets `privatekeySecretName: ...` and `passwordSecretName: ...`. We're connecting to the first node using `staticNodes` option which accepts `Node` name or enode url.
 
 {% hint style="info" %}
 `staticNodes` accept `Node` name or enode URL. `Node` name has the format of `name.namespace`, namespace is optional if `Node` is in the same namespace. If the node doesn't exist, or is not up and running yet, Kotal will not raise an error.
