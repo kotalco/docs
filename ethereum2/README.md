@@ -32,7 +32,7 @@ kubectl explain beaconnode
 kubectl explain beaconnode.spec
 ```
 
-Full beacon node reference is documented [here](../reference/beacon.md).
+Full beacon node reference is documented [here](../reference/ethereum2.md).
 
 ## Validator Client
 
@@ -63,7 +63,7 @@ kubectl explain validator.spec
 kubectl explain validator.spec.keystores
 ```
 
-Full validator client reference is documented [here](../reference/validator.md).
+Full validator client reference is documented [here](../reference/ethereum2.md).
 
 ## Multi-client Support
 
