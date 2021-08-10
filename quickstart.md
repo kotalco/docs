@@ -16,16 +16,18 @@ spec:
 Deploy the node using kubectl:
 
 ```bash
-$ kubectl apply -f rinkeby.yaml
-
-node.ethereum.kotal.io/rinkeby-geth-node created
+kubectl apply -f rinkeby.yaml
 ```
 
 Within a couple of seconds, the node will be up and running. You can get the node using:
 
 ```bash
-$ kubectl get nodes.ethereum
+kubectl get nodes.ethereum
+```
 
+It will return an output similar to the following:
+
+```bash
 NAME                 CLIENT   Network   Consensus
 rinkeby-geth-node    geth     rinkeby   poa
 ```
@@ -33,8 +35,13 @@ rinkeby-geth-node    geth     rinkeby   poa
 Kotal will create all the necessary pods, volumes, services for the node. Get the pods by:
 
 ```bash
-$ kubectl get pods
+kubectl get pods
+```
 
+It will return an output similar to the following:
+
+
+```bash
 NAME                     READY   STATUS    RESTARTS   AGE
 rinkeby-geth-node-0      1/1     Running   0          1m
 ```
@@ -42,9 +49,7 @@ rinkeby-geth-node-0      1/1     Running   0          1m
 Finally delete the node by:
 
 ```bash
-$ kubectl delete -f rinkeby.yaml
-
-node.ethereum.kotal.io "rinkeby-geth-node" deleted
+kubectl delete -f rinkeby.yaml
 ```
 
 Congratulations!

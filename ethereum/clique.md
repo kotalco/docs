@@ -1,8 +1,3 @@
-
-{% hint style="warning" %}
-Kotal will reject your node if you set both `spec.genesis` and `spec.network`. Use `spec.network` if you're joining a public network, or use `spec.genesis` if you're joining private network.
-{% endhint %}
-
 ## Deploy Private Network Node
 
 {% hint style="danger" %}
@@ -51,9 +46,7 @@ We're defining a genesis block that uses the value `4444` as network and chain i
 This node private key secret can be created by:
 
 ```bash
-$ kubectl create secret generic besu-clique-nodekey --from-literal=key=fb5411342ae51291447515c89bcf6a057e3dbd0b51e060c45cb73406c38f851d
-
-secret/besu-clique-nodekey created
+kubectl create secret generic besu-clique-nodekey --from-literal=key=fb5411342ae51291447515c89bcf6a057e3dbd0b51e060c45cb73406c38f851d
 ```
 
 {% hint style="info" %}
@@ -63,9 +56,7 @@ Private key must **not** start with `0x`, and must be stored in secret data fiel
 Let's deploy the node:
 
 ```bash
-$ kubectl apply -f besu-clique-node.yaml
-
-node.ethereum.kotal.io/besu-clique-node created
+kubectl apply -f besu-clique-node.yaml
 ```
 
 Kotal operator will notice your `besu-clique-node` and will create all the necessary pods, persistent volumes, services, configmaps, and secrets.
@@ -73,8 +64,11 @@ Kotal operator will notice your `besu-clique-node` and will create all the neces
 You can fetch the deployed Ethereum `Node` using:
 
 ```bash
-$ kubectl get nodes.ethereum
+kubectl get nodes.ethereum
+```
+It will return an output similar to the following:
 
+```bash
 NAME                 CLIENT   Consensus   Network
 besu-clique-node     besu     poa         private
 ```
@@ -84,8 +78,11 @@ besu-clique-node     besu     poa         private
 Get the pods that has been created by Kotal for the node:
 
 ```bash
-$ kubectl get pods
+kubectl get pods
+```
+It will return an output similar to the following:
 
+```bash
 NAME                  READY   STATUS    RESTARTS   AGE
 besu-clique-node-0    1/1     Running   0          1m
 ```
@@ -93,7 +90,7 @@ besu-clique-node-0    1/1     Running   0          1m
 Get the logs of the running node:
 
 ```bash
-$ kubectl logs -f besu-clique-node-0
+kubectl logs -f besu-clique-node-0
 ```
 
 ## Deploy a Second Node
@@ -139,16 +136,14 @@ In this node, we're using go-ethereum client `client: geth`, starting the PoA co
 You can create the private key and password secrets using:
 
 ```bash
-$ kubectl create secret generic geth-clique-account-key --from-literal=key=153b174f5e9948ae4678baed54f88244cc9c39d56b9f17ecef93d7ede633f56b
-$ kubectl create secret generic geth-clique-account-password --from-literal=password=s3cr3t
+kubectl create secret generic geth-clique-account-key --from-literal=key=153b174f5e9948ae4678baed54f88244cc9c39d56b9f17ecef93d7ede633f56b
+kubectl create secret generic geth-clique-account-password --from-literal=password=s3cr3t
 ```
 
 Deploy the second node using:
 
 ```bash
-$ kubectl apply -f geth-clique-node.yaml
-
-node.ethereum.kotal.io/geth-clique-node created
+kubectl apply -f geth-clique-node.yaml
 ```
 
 Kotal operator will notice your second `geth-clique-node` and will create all the necessary pods, persistent volumes, services, configmaps, and secrets.
@@ -156,8 +151,12 @@ Kotal operator will notice your second `geth-clique-node` and will create all th
 You can fetch the deployed Ethereum `Node`s using:
 
 ```bash
-$ kubectl get nodes.ethereum
+kubectl get nodes.ethereum
+```
 
+It will return an output similar to the following:
+
+```bash
 NAME                 CLIENT   Consensus   Network
 besu-clique-node     besu     poa         private
 geth-clique-node     geth     poa         private
@@ -168,8 +167,12 @@ geth-clique-node     geth     poa         private
 Get the pods that has been created by Kotal for the node:
 
 ```bash
-$ kubectl get pods
+kubectl get pods
+```
 
+It will return an output similar to the following:
+
+```bash
 NAME                  READY   STATUS    RESTARTS   AGE
 besu-clique-node-0    1/1     Running   0          1m
 geth-clique-node-0    1/1     Running   0          1m
@@ -178,15 +181,13 @@ geth-clique-node-0    1/1     Running   0          1m
 Forward localhost:8545 calls to the node pod:
 
 ```bash
-$ kubectl port-forward besu-clique-node-0 8545
-
-Forwarding from 127.0.0.1:8545 -> 8545
+kubectl port-forward besu-clique-node-0 8545
 ```
 
 In another terminal window call `net_peerCount` JSON-RPC method
 
 ```bash
-$ curl -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":32}' http://127.0.0.1:8545
+curl -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":32}' http://127.0.0.1:8545
 ```
 
 You will get JSON result similar to the following:
@@ -207,10 +208,7 @@ Deploy a third node that uses Nethermind client, and signing blocks using the th
 Finally you can delete all the nodes by:
 
 ```bash
-$ kubectl delete nodes.ethereum --all
-
-node.ethereum.kotal.io "besu-clique-node" deleted
-node.ethereum.kotal.io "geth-clique-node" deleted
+kubectl delete nodes.ethereum --all
 ```
 
 Kubernetes garbage collector will delete all the resources that has been created by Kotal Ethereum `Node` controller.

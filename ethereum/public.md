@@ -1,9 +1,5 @@
 ## Deploy Rinkeby Node
 
-{% hint style="warning" %}
-Kotal will reject your node if you set both `spec.genesis` and `spec.network`. Use `spec.network` if you're joining a public network, or use `spec.genesis` if you're joining private network.
-{% endhint %}
-
 Rinkeby is a Proof of Authority public Ethereum test network, used by developers to test their dApps.
 
 
@@ -29,9 +25,7 @@ After the node is created, you can't change `spec.network`.
 Apply `rinkeby.yaml` manifest:
 
 ```bash
-$ kubectl apply -f rinkeby.yaml
-
-node.ethereum.kotal.io/rinkeby-besu-node created
+kubectl apply -f rinkeby.yaml
 ```
 
 Kotal operator will notice your `rinkeby-besu-node` and will create all the necessary pods, persistent volumes, services, configmaps, and secrets neccessary.
@@ -39,8 +33,11 @@ Kotal operator will notice your `rinkeby-besu-node` and will create all the nece
 You can fetch the deployed Ethereum `Node` using:
 
 ```bash
-$ kubectl get nodes.ethereum
+kubectl get nodes.ethereum
+```
+It will return an output similar to the following:
 
+```bash
 NAME                 CLIENT   Consensus   Network
 rinkeby-besu-node    besu     poa         rinkeby
 ```
@@ -50,8 +47,12 @@ rinkeby-besu-node    besu     poa         rinkeby
 Get the pods that has been created by Kotal for the node:
 
 ```bash
-$ kubectl get pods
+kubectl get pods
+```
 
+It will return an output similar to the following:
+
+```bash
 NAME                  READY   STATUS    RESTARTS   AGE
 rinkeby-besu-node-0   1/1     Running   0          1m
 ```
@@ -59,7 +60,7 @@ rinkeby-besu-node-0   1/1     Running   0          1m
 Get the logs of the running node:
 
 ```bash
-$ kubectl logs -f rinkeby-besu-node-0
+kubectl logs -f rinkeby-besu-node-0
 ```
 
 ## Call JSON-RPC Method
@@ -94,23 +95,19 @@ For a comprehensive reference on Ethereum `Node` and default spec parameter valu
 Apply the new version of `rinkeby.yaml`:
 
 ```bash
-$ kubectl apply -f rinkeby.yaml
-
-node.ethereum.kotal.io/rinkeby-besu-node configured
+kubectl apply -f rinkeby.yaml
 ```
 
 Forward localhost:8545 calls to the node pod:
 
 ```bash
-$ kubectl port-forward rinkeby-besu-node-0 8545
-
-Forwarding from 127.0.0.1:8545 -> 8545
+kubectl port-forward rinkeby-besu-node-0 8545
 ```
 
 In another terminal window call `eth_syncing` JSON-RPC method
 
 ```bash
-$ curl -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":32}' http://127.0.0.1:8545
+curl -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":32}' http://127.0.0.1:8545
 ```
 
 You will get JSON result similar to the following:
