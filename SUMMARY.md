@@ -7,21 +7,21 @@
 
 ## Tutorials
 
-* [Ethereum](ethereum/README.md)
+* [💎 Ethereum](ethereum/README.md)
     * [Deploy Public Rinkeby Node](ethereum/public.md)
     * [Deploy Private Clique Network](ethereum/clique.md)
     * [Deploy Private Ethash Network](ethereum/ethash.md)
     * [Deploy Private IBFT 2.0 Network](ethereum/ibft2.md)
 
-* [Ethereum 2.0](ethereum2/README.md)
+* [💠 Ethereum 2.0](ethereum2/README.md)
     * [Deploy Beacon Node](ethereum2/beacon.md)
     * [Deploy Validator Client](ethereum2/validator.md)
 
-* [IPFS](ipfs/README.md)
+* [📎 IPFS](ipfs/README.md)
     * [Deploy ipfs peer](ipfs/peer.md)
     * [Deploy ipfs cluster peer](ipfs/validator.md)
 
-* [Filecoin](filecoin/README.md)
+* [🗂️ Filecoin](filecoin/README.md)
     * [Deploy Filecoin Node](filecoin/node.md)
 
 ## Reference
