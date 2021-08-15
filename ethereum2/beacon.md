@@ -102,7 +102,7 @@ You'll get a result similar to the following:
 }
 ```
 
-Finally delete the beacon node and kubernetes will delete all resources created for the beacon node like pods, services ... etc:
+Finally delete the beacon node:
 
 ```bash
 kubectl delete beaconnode teku-beacon-node
