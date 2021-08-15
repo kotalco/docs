@@ -57,6 +57,10 @@ NAME                  READY   STATUS    RESTARTS   AGE
 rinkeby-besu-node-0   1/1     Running   0          1m
 ```
 
+{% hint style="info" %}
+If pod `STATUS` is `Pending`, most probably it's due to not enough cpu and memory, because Kotal allocates lots of cpu cores and memory for public nodes. The required node resources can be changed using `spec.resources.cpu`, `spec.resources.memory`, and `spec.resources.storage`.
+{% endhint %}
+
 Get the logs of the running node:
 
 ```bash
