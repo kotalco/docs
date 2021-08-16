@@ -18,8 +18,8 @@
     * [Deploy Validator Client](ethereum2/validator.md)
 
 * [📎 IPFS](ipfs/README.md)
-    * [Deploy ipfs peer](ipfs/peer.md)
-    * [Deploy ipfs cluster peer](ipfs/validator.md)
+    * [Deploy IPFS peer](ipfs/peer.md)
+    * [Deploy IPFS cluster peer](ipfs/cluster.md)
 
 * [🗂️ Filecoin](filecoin/README.md)
     * [Deploy Filecoin Node](filecoin/node.md)
