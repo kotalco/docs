@@ -18,7 +18,6 @@ kubectl create secret generic cluster-secret --from-literal=secret=$CLUSTER_SECR
 Cluster secret must be 32-byte hex-encoded (64 characters) without the leading `0x`. It must be hold in data field called `secret` in the Kubernetes secret.
 {% endhint %}
 
-
 3. Create cluster peer ID and private key using [ipfs-key](https://github.com/whyrusleeping/ipfs-key)
 
 ```bash
