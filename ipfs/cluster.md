@@ -35,10 +35,8 @@ It will return an output similar to the following:
 ```
 Generating a 2048 bit ed25519 key...
 Success!
-# highlight-start
 ID for generated key: 12D3KooWBcEtY8GH4mNkri9kM3haeWhEXtQV7mi81ErWrqLYGuiq
 CAESQOH/DvUJmeJ9z6m3wAStpkrlBwJQxIyNSK0YGf0EI5ZRGpwsWxl4wmgReqmHl8LQjTC2iPM0QbYAjeY3Z63AFnI=
-# highlight-end
 ```
 
 ### Step 4 - Deploy Private Key Secret
@@ -269,10 +267,8 @@ It will return an output similar to the following:
 2021-05-01T19:17:12.442Z	INFO	crdt	crdt/consensus.go:277	'trust all' mode enabled. Any peer in the cluster can modify the pinset.
 2021-05-01T19:17:12.447Z	INFO	cluster	ipfs-cluster/cluster.go:651	Cluster Peers (without including ourselves):
 2021-05-01T19:17:12.447Z	INFO	cluster	ipfs-cluster/cluster.go:653	    - No other peers
-# highlight-start
 2021-05-01T19:17:12.448Z	INFO	cluster	ipfs-cluster/cluster.go:666	** IPFS Cluster is READY **
 2021-05-01T19:17:12.551Z	INFO	cluster	ipfs-cluster/cluster.go:1020	12D3KooWGVZek7gdarvj7gePvnV9x8ekSeSdruYojgj5dmU466Wv: joined 12D3KooWBcEtY8GH4mNkri9kM3haeWhEXtQV7mi81ErWrqLYGuiq's cluster
-# highlight-end
 ```
 
 As you can see cluster peer two is up and running as indicated by the healthy logs and `IPFS Cluster is READY`.
