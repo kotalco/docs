@@ -91,6 +91,8 @@ NAME           CLIENT                 CONSENSUS
 cluster-peer   ipfs-cluster-service   crdt
 ```
 
+## Fetch Cluster Peer Logs
+
 Get the pods created for our cluster peer:
 
 ```bash
@@ -129,6 +131,9 @@ It will return an output similar to the following:
 ```
 
 As you can see from the logs that our cluster peer is up and running as indicated by the healthy logs `IPFS Cluster is READY`.
+
+
+## Update Cluster Pinset
 
 Let's add some content to the pinset by executing commands inside cluster peer container:
 
@@ -215,6 +220,8 @@ NAME               CLIENT                 CONSENSUS
 cluster-peer       ipfs-cluster-service   crdt
 cluster-peer-two   ipfs-cluster-service   crdt
 ```
+
+## Fetch Second Cluster Peer Logs
 
 Get the pods created by our cluster peer:
 
