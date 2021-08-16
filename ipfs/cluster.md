@@ -5,11 +5,11 @@
 
 Before we start, you need to:
 
-### Step 1
+### Step 1 - Deploy IPFS Peer
 
 Deploy an ipfs peer `Peer` because it's required by `ClusterPeer`. Check our [Deploy IPFS Peer](./peer.md) tutorial.
 
-### Step 2
+### Step 2 - Generate Cluster Secret
 
 Create a cluster secret which secures access to the cluster:
 
@@ -22,7 +22,7 @@ kubectl create secret generic cluster-secret --from-literal=secret=$CLUSTER_SECR
 Cluster secret must be 32-byte hex-encoded (64 characters) without the leading `0x`. It must be hold in data field called `secret` in the Kubernetes secret.
 {% endhint %}
 
-### Step 3
+### Step 3 - Generate ID and Private Key
 
 Create cluster peer ID and private key using [ipfs-key](https://github.com/whyrusleeping/ipfs-key)
 
@@ -41,7 +41,7 @@ CAESQOH/DvUJmeJ9z6m3wAStpkrlBwJQxIyNSK0YGf0EI5ZRGpwsWxl4wmgReqmHl8LQjTC2iPM0QbYA
 # highlight-end
 ```
 
-### Step 4
+### Step 4 - Deploy Private Key Secret
 
 create Kubernetes secret from the generated private key in step(3) above.
 
@@ -182,7 +182,7 @@ As you can see, content pinned by the cluster peer, has been added to the pinset
 
 The only prerequisite to the second cluster peer is to:
 
-### Step 1
+### Step 1 - Deploy IPFS Peer
 
 Deploy an ipfs peer `Peer`, and **name it** `peer-sample-two`. Check our [Deploy IPFS Peer](./peer.md) tutorial.
 
