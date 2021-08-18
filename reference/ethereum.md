@@ -2,12 +2,11 @@
 
 | Syntax                               | Type    | Description                                                           | Default                             |
 | ------------------------------------ | ------- | --------------------------------------------------------------------- | ----------------------------------- |
-| [id](#id)                            | number  | Network id used for p2p communcations between network nodes           |                                     |
 | [network](#network)                  | string  | Public network name to join, like `mainnet`, `rinkeby`, and `goerli`  |                                     |
 | [highlyAvailable](#highly-available) | boolean | Ethereum nodes will be scheduled on different kubernetes nodes        | `false`                             |
 | [topologyKey](#topology-key)         | string  | kubernetes node label key used to distribute ethereum nodes           | `topology.kubernetes.io/zone`       |
 | [genesis](#genesis)                  | object  | Genesis block configuration                                           |                                     |
-| [bootnodes](#bootnodes)              | array   | ethereum node URLS for p2p discovery bootstrap                        |                                     |
+| [bootnodes](#bootnodes)              | array   | ethereum node URLs for p2p discovery bootstrap                        |                                     |
 | [client](#client)                    | string  | ethereum client powering the node                                     | `besu`                              |
 | [coinbase](#coinbase)                | string  | ethereum account to which mining rewards are paid                     |                                     |
 | [corsDomains](#corsdomains)          | array   | domains from which to accept cross origin requests (browser enforced) | `*`                                 |
@@ -17,7 +16,7 @@
 | [import](#import)                    | object  | ethereum account to import for `geth` node                            |                                     |
 | [logging](#logging)                  | string  | node logging verbosity level                                          | `info`                              |
 | [miner](#miner)                      | boolean | node is mining or signing blocks ?                                    | false                               |
-| [nodePrivatekeySecretName](#nodePrivatekeySecretName)                  | string  | node private key                                                      |                                     |
+| [nodePrivatekeySecretName](#nodePrivatekeySecretName)                  | string  | name of kubernetes secret holding node private key                                                      |                                     |
 | [p2pPort](#p2pport)                  | string  | node p2p port                                                         | `30303`                             |
 | [resources](#resources)              | object  | node compute and storage resources to alloacte                        |                                     |
 | [rpc](#rpc)                          | boolean | enable HTTP RPC server                                                | `false`                             |
@@ -54,7 +53,7 @@
 `bootnodes` accepts ethereum node URL `enodeURL` or a reference to kotal `Node` in the form of `name.namespace` where namespace is optional if referenced node is in the same namespace.
 
 {% hint style="warning" %}
-Each Ethereum clients has hardcoded bootnodes for public main and test networks. `bootnodes` will override these bootnodes.
+Ethereum clients have hardcoded bootnodes for public main and test networks. `bootnodes` will override these bootnodes.
 {% endhint %}
 
 
@@ -64,9 +63,9 @@ Each Ethereum clients has hardcoded bootnodes for public main and test networks.
 
 `client` possible values are `besu`, `geth`, `nethermind`, or `parity`.
 
-Client `geth` or `parity` can't be used if network consensus is `ibft2`.
+Only `besu` client can be used if network consensus is `ibft2`.
 
-Client `geth` or `parity` can't be used in fixed difficulty proof of work networks, where `spec.consensus` is `pow` and `spec.genesis.ethash.fixedDifficulty` is not null.
+Only `besu` can be used in fixed difficulty proof of work networks, where `spec.genesis.ethash.fixedDifficulty` is not null.
 
 ### coinbase
 
@@ -87,6 +86,7 @@ Default value `*` will be used if HTTP RPC server is enabled `rpc: true` or web 
 {% hint style="warning" %}
 
 * Parity (OpenEthereum) client doesn't support GraphQL.
+* Nethermind client doesn't support GraphQL.
 * Geth (Go-Ethereum) GraphQL server can be used only if RPC is enabled as of geth [v1.9.19 release](https://github.com/ethereum/go-ethereum/releases/tag/v1.9.19)
 
 {% endhint %}
@@ -207,7 +207,7 @@ Static nodes are exempt from maximum peer and remote connection limits. Ethereum
 
 `syncMode` possible values are `light`, `full` or `fast`.
 
-:snake: Nodes that run with `client: besu` doesn't support `light` sync mode.
+Nodes that run with `client: besu` doesn't support `light` sync mode.
 
 ### ws
 
@@ -236,7 +236,7 @@ Genesis block configuration `genesis` is required in private networks.
 | ----------- |------| ----------- | ------ |
 | [chainId](#chainid)   | number | used in transaction signature to prevent transactions reply [eip155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md) | |
 | [networkId](#networkid)   | number | used in network p2p communications | |
-| [coinbase](#coinbase) | string | benefeciary (ethereum address) of mining reward | `address(0`)|
+| [coinbase](#coinbase) | string | benefeciary (ethereum address) of mining reward | `address(0)`|
 | [difficulty](#difficulty)| string | difficulty (hexadecimal number) of the genesis block | `0x1` |
 | [mixHash](#mixhash)| string | hash (hexadecimal) combined with nonce to prove effort spent to create block | `0x00..00` |
 | [gasLimit](#gaslimit)| string | total gas limit (hexadecimal number) for all transactions in a block | `0x47b760` |
