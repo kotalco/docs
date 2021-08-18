@@ -2,9 +2,7 @@
 
 | Syntax                               | Type    | Description                                                           | Default                             |
 | ------------------------------------ | ------- | --------------------------------------------------------------------- | ----------------------------------- |
-
 | [id](#id)                            | number  | Network id used for p2p communcations between network nodes           |                                     |
-
 | [network](#network)                  | string  | Public network name to join, like `mainnet`, `rinkeby`, and `goerli`  |                                     |
 | [highlyAvailable](#highly-available) | boolean | Ethereum nodes will be scheduled on different kubernetes nodes        | `false`                             |
 | [topologyKey](#topology-key)         | string  | kubernetes node label key used to distribute ethereum nodes           | `topology.kubernetes.io/zone`       |
