@@ -7,7 +7,7 @@
 | [topologyKey](#topology-key)         | string  | kubernetes node label key used to distribute ethereum nodes           | `topology.kubernetes.io/zone`       |
 | [genesis](#genesis)                  | object  | Genesis block configuration                                           |                                     |
 | [bootnodes](#bootnodes)              | array   | ethereum node URLs for p2p discovery bootstrap                        |                                     |
-| [client](#client)                    | string  | ethereum client powering the node                                     | `besu`                              |
+| [client](#client)                    | string  | ethereum client powering the node                                     |                                     |
 | [coinbase](#coinbase)                | string  | ethereum account to which mining rewards are paid                     |                                     |
 | [corsDomains](#corsdomains)          | array   | domains from which to accept cross origin requests (browser enforced) | `*`                                 |
 | [graphql](#graphql)                  | boolean | enable GraphQL server                                                 | `false`                             |
