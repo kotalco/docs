@@ -1,4 +1,5 @@
-## `Node`
+
+## Node
 
 | Syntax                               | Type    | Description                                                           | Default                             |
 | ------------------------------------ | ------- | --------------------------------------------------------------------- | ----------------------------------- |
@@ -29,19 +30,6 @@
 | [wsPort](#wsport)                    | number  | web socket server listening port                                      | `8546`                              |
 | [wsAPI](#wsapi)                      | array   | services to enable                                                    | `web3`, `eth`, and `net`            |
 
-### id
-
-:::note
-If the node is created by a [Network](network) controller, the network `.spec.id` will be used, and node `.spec.id` will be ignored.
-:::
-
-`id` is the network id used for p2p communications between network nodes in private networks.
-
-`id` is required in private networks.
-
-`id` can't be provided while joining a public network.
-
-`id` can't be updated (immutable).
 
 ### network
 
@@ -251,3 +239,13 @@ For extensive details, check [genesis](genesis) reference.
 {% hint style="info" %}
 Add genesis reference here
 {% endhint %}
+
+### id
+
+`id` is the network id used for p2p communications between network nodes in private networks.
+
+`id` is required in private networks.
+
+`id` can't be provided while joining a public network.
+
+`id` can't be updated (immutable).
