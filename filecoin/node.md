@@ -17,7 +17,7 @@ spec:
 
 This is a simple filecoin `Node` that joins nerpa test network.
 
-Let's deloy the node:
+Let's deploy the node:
 
 ```bash
 kubectl apply -f nerpa.yaml

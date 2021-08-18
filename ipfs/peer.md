@@ -12,7 +12,7 @@ spec: {}
 
 This is a simple ipfs peer that joins the public ipfs swarm, and will starts with the all default settings that's similar to running `ipfs init` then `ipfs daemon` on your machine.
 
-Let's deloy the peer:
+Let's deploy the peer:
 
 ```bash
 kubectl apply -f peer.yaml
