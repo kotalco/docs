@@ -127,14 +127,14 @@ Different clients support different logging vrbosity levels as shown in the foll
 
 | Logging/Client | Hyperledger Besu   | Go Ethereum        | Parity (OpenEthereum) | Nethermind            | 
 | -------------- | ------------------ | ------------------ | --------------------- | --------------------- |
-| `off`          | :heavy_check_mark: | :heavy_check_mark: | :x:                   | :x:                   |
-| `fatal`        | :heavy_check_mark: | :x:                | :x:                   | :x:                   |
-| `error`        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:    | :heavy_check_mark:    |
-| `warn`         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:    | :heavy_check_mark:    |
-| `debug`        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:    | :heavy_check_mark:    |
-| `info`         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:    | :heavy_check_mark:    |
-| `trace`        | :heavy_check_mark: | :x:                | :heavy_check_mark:    | :heavy_check_mark:    |
-| `all`          | :heavy_check_mark: | :heavy_check_mark: | :x:                   | :x:                   |
+| `off`          | ✔️                  | ✔️                  | ❌                    |   ❌                   |
+| `fatal`        | ✔️                  | ❌                 | ❌                     | ❌                    |
+| `error`        | ✔️                  | ✔️                  | ✔️                     | ✔️                     |
+| `warn`         | ✔️                  | ✔️                  | ✔️                     | ✔️                     |
+| `debug`        | ✔️                  | ✔️                  | ✔️                     | ✔️                     |
+| `info`         | ✔️                  | ✔️                  | ✔️                     | ✔️                     |
+| `trace`        | ✔️                  | ❌                 | ✔️                     | ✔️                     |
+| `all`          | ✔️                  | ✔️                  | ❌                    | ❌                     |
 
 ### miner
 
