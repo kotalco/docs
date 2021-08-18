@@ -62,7 +62,7 @@ Each Ethereum clients has hardcoded bootnodes for public main and test networks.
 
 `client` is the Ethereum client name powering the node.
 
-`client` possible values are `besu`, `geth` or `parity`.
+`client` possible values are `besu`, `geth`, `nethermind`, or `parity`.
 
 Client `geth` or `parity` can't be used if network consensus is `ibft2`.
 
