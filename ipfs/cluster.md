@@ -131,7 +131,6 @@ It will return an output similar to the following:
 2021-04-30T00:31:24.134Z	INFO	crdt	go-ds-crdt@v0.1.20/crdt.go:278	crdt Datastore created. Number of heads: 0. Current max-height: 0
 2021-04-30T00:31:24.136Z	INFO	cluster	ipfs-cluster/cluster.go:651	Cluster Peers (without including ourselves):
 2021-04-30T00:31:24.136Z	INFO	cluster	ipfs-cluster/cluster.go:653	    - No other peers
-# highlight-next-line
 2021-04-30T00:31:24.136Z	INFO	cluster	ipfs-cluster/cluster.go:666	** IPFS Cluster is READY **
 ```
 
