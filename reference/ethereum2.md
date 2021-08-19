@@ -125,15 +125,15 @@ cpu requests and limits must use the pattern `^[1-9][0-9]*m?$` for example `1000
 | [keystores](#keystores)                               | array  | Validator keystores                     |                  |
 | [resources](#resources)                               | object | Validator compute and storage resources |                  |
 
-## network
+### network
 
 `network` is the Network to validate blocks for.
 
-## client
+### client
 
 `client` is the Ethereum 2.0 client to use.
 
-## beaconEndpoints
+### beaconEndpoints
 
 `beaconEndpoints` is a list of beacon node endpoints.
 
@@ -141,11 +141,11 @@ cpu requests and limits must use the pattern `^[1-9][0-9]*m?$` for example `1000
 `lighthouse` is the only client that supports multiple endpoints. All other clients supports only a single endpoint.
 {% endhint %}
 
-## graffiti
+### graffiti
 
 `graffiti` is the text to include in proposed blocks.
 
-## walletPasswordSecretName
+### walletPasswordSecretName
 
 `walletPasswordSecretName` is `prysm` wallet password kubernetes secret.
 
@@ -167,7 +167,7 @@ kubectl create secret wallet-password --from-file=password=<password-file-path>
 {% endhint %}
 
 
-## keystores
+### keystores
 
 `keystores` is array of keystore objects.
 
@@ -193,7 +193,7 @@ kubectl create secret my-validator --from-file=keystore=/path/to/keystore.json -
 
 {% endhint %}
 
-## resources
+### resources
 
 `resources` allocates compute and storage resources to the node.
 
