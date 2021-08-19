@@ -1,5 +1,9 @@
 ## Peer
 
+{% hint style="info" %}
+Kotal uses only `go-ipfs` client for IPFS peers, that's why there's no `.spec.client` option.
+{% endhint %}
+
 | Syntax                                    | Type   | Description                                                       | Default           |
 | ----------------------------------------- | ------ | ----------------------------------------------------------------- | ----------------- |
 | [initProfiles](#initprofiles)             | Array  | List of initial configuration profiles                            | default-datastore |
@@ -87,6 +91,10 @@ cpu requests and limits must use the pattern `^[1-9][0-9]*m?$` for example `1000
 `memoryLimit` can't be less than or equal to `memory`.
 
 ## ClusterPeer
+
+{% hint style="info" %}
+Kotal uses only `ipfs-cluster-service` for IPFS cluster peers that runs along with `go-ipfs`, that's why there's no `.spec.client` option.
+{% endhint %}
 
 | Syntax                                           | Type   | Description                                             | Default                    |
 | ------------------------------------------------ | ------ | ------------------------------------------------------- | -------------------------- |
