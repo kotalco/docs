@@ -20,8 +20,8 @@ cert-manager installation guide can be found [here](https://cert-manager.io/docs
 
 ## Install kotal
 
-The latest version of Kotal operator `v0.1-alpha.4` can be installed into your Kubernetes cluster simply by:
+The latest version of Kotal operator `v0.1-alpha.5` can be installed into your Kubernetes cluster simply by:
 
 ```bash
-kubectl apply -f https://github.com/kotalco/kotal/releases/download/v0.1-alpha.4/kotal.yaml
+kubectl apply -f https://github.com/kotalco/kotal/releases/download/v0.1-alpha.5/kotal.yaml
 ```
