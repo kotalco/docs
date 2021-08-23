@@ -175,6 +175,8 @@ cpu requests and limits must use the pattern `^[1-9][0-9]*m?$` for example `1000
 
 `memoryLimit` can't be less than `memory`.
 
+`storageClass` field is immutable, it cannot be changed after creation.
+
 ### rpc
 
 `rpc` enables the HTTP RPC server.
