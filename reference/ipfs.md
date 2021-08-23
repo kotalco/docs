@@ -81,6 +81,7 @@ kubectl create secret generic swarm-key --from-literal=secret=$w@rmk3y
 | memory      | string | memory this peer requires                   | `2Gi`  |
 | memoryLimit | string | memory this peer is limited to              | `4Gi`  |
 | storage     | string | disk space this peer requires               | `10Gi` |
+| storageClass | string | Node volume storage class                  | Cluster's default storage class will be used as defined by cluster admin or cloud provider  |
 
 Memory and storage requests and limits must use the pattern `^[1-9][0-9]*[KMGTPE]i$` for example `1500Mi`, `30Gi`, and `1Ti`.
 
@@ -89,6 +90,8 @@ cpu requests and limits must use the pattern `^[1-9][0-9]*m?$` for example `1000
 `cpuLimit` can't be less than `cpu`.
 
 `memoryLimit` can't be less than or equal to `memory`.
+
+`storageClass` field is immutable, it cannot be changed after creation.
 
 ## ClusterPeer
 
