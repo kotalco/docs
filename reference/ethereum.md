@@ -207,6 +207,8 @@ Static nodes are exempt from maximum peer and remote connection limits. Ethereum
 
 `syncMode` possible values are `light`, `full` or `fast`.
 
+In Nethermind client, `light` sync will enable beam sync.
+
 Nodes that run with `client: besu` doesn't support `light` sync mode.
 
 ### ws
