@@ -22,7 +22,7 @@ Which will report node name, client, network, and consensus.
 If you want to get all the fields associated with ethereum `Node`:
 
 ```bash
-$ kubectl explain nodes.ethereum
+$ kubectl explain nodes --api-version ethereum.kotal.io/v1alpha1
 ```
 
 For a comprehensive reference on Ethereum `Node`, check our [ethereum reference](../reference/ethereum.md)

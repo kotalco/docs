@@ -17,8 +17,8 @@ spec: {}
 For all the fields associated with the `Peer` API resource:
 
 ```bash
-kubectl explain peers
-kubectl explain peers.spec
+kubectl explain peers --api-version ipfs.kotal.io/v1alpha1
+kubectl explain peers.spec --api-version ipfs.kotal.io/v1alpha1
 ```
 
 Full ipfs peer reference is documented [here](../reference/ipfs.md).
@@ -39,8 +39,8 @@ spec:
 For all the fields associated with the `ClusterPeer` API resource:
 
 ```bash
-kubectl explain clusterpeers
-kubectl explain clusterpeers.spec
+kubectl explain clusterpeers --api-version ipfs.kotal.io/v1alpha1
+kubectl explain clusterpeers.spec --api-version ipfs.kotal.io/v1alpha1
 ```
 
 Full ipfs cluster peer reference is documented [here](../reference/ipfs.md).

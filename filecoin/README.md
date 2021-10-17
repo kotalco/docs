@@ -10,3 +10,12 @@ metadata:
 spec:
   network: nerpa
 ```
+
+For all the fields associated with the `Node` API resource:
+
+```bash
+kubectl explain node --api-version filecoin.kotal.io/v1alpha1
+kubectl explain node.spec --api-version filecoin.kotal.io/v1alpha1
+```
+
+Full filecoin node reference is documented [here](../reference/filecoin.md).

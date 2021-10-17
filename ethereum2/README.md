@@ -28,8 +28,8 @@ spec:
 For all the fields associated with the `BeaconNode` API resource:
 
 ```bash
-kubectl explain beaconnode
-kubectl explain beaconnode.spec
+kubectl explain beaconnode --api-version ethereum2.kotal.io/v1alpha1
+kubectl explain beaconnode.spec --api-version ethereum2.kotal.io/v1alpha1
 ```
 
 Full beacon node reference is documented [here](../reference/ethereum2.md).
@@ -58,9 +58,9 @@ spec:
 For all the fields associated with the `Validator` API resource:
 
 ```bash
-kubectl explain validator
-kubectl explain validator.spec
-kubectl explain validator.spec.keystores
+kubectl explain validator --api-version ethereum2.kotal.io/v1alpha1
+kubectl explain validator.spec --api-version ethereum2.kotal.io/v1alpha1
+kubectl explain validator.spec.keystores --api-version ethereum2.kotal.io/v1alpha1
 ```
 
 Full validator client reference is documented [here](../reference/ethereum2.md).
