@@ -117,7 +117,7 @@ curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method":
 
 You will get JSON result similar to the following:
 
-```JSON
+```json
 {
   "jsonrpc": "2.0",
   "result": {
