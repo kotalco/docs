@@ -116,7 +116,7 @@ curl -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","metho
 
 You will get JSON result similar to the following:
 
-```JSON
+```json
 {
   "jsonrpc" : "2.0",
   "id" : 32,
