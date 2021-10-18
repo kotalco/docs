@@ -102,7 +102,7 @@ Kotal uses only `ipfs-cluster-service` for IPFS cluster peers that runs along wi
 | Syntax                                           | Type   | Description                                             | Default                    |
 | ------------------------------------------------ | ------ | ------------------------------------------------------- | -------------------------- |
 | [id](#id)                                        | string | Cluster peer ID                                         |                            |
-| [privatekeySecretName](#privatekeysecretname)    | string | Name of the k8s secret holding cluster peer privatekey  | `*` if consensus is `crdt` |
+| [privateKeySecretName](#privatekeysecretname)    | string | Name of the k8s secret holding cluster peer privatekey  | `*` if consensus is `crdt` |
 | [trustedPeers](#trustedpeers)                    | array  | Peer IDs that can manage the pinset in `crdt` consensus |                            |
 | [bootstrapPeers](#bootstrappeers)                | array  | Peers to connect to on startup                          |                            |
 | [consensus](#consensus)                          | string | Cluster consensus algorithm                             | `crdt`                     |
@@ -114,7 +114,7 @@ Kotal uses only `ipfs-cluster-service` for IPFS cluster peers that runs along wi
 
 `id` is cluster peer id derived from private key.
 
-`id` is required if `privatekeySecretName` is provided.
+`id` is required if `privateKeySecretName` is provided.
 
 `id` can be generated using [ipfs-key](https://github.com/whyrusleeping/ipfs-key) tool.
 
@@ -131,13 +131,13 @@ ID for generated key: 12D3KooWT2bqgwZPxHthAGBV9Ut8ZLraz1LARtB7vG3mF26Mtof1
 CAESQLepaunFGa/PI0oNS3plrbVSInqab/X/U1laEDe2V2cL/7kbF9H6x3xBiwpbVnYT/jDA8EhAznXALlbwzEsuKaw=
 ```
 
-### privatekeySecretName
+### privateKeySecretName
 
-`privatekeySecretName` is the name of the k8s secret holding **base64** cluster peer privatekey in a key called `key`.
+`privateKeySecretName` is the name of the k8s secret holding **base64** cluster peer privatekey in a key called `key`.
 
-`privatekeySecretName` is required if `id` is provided.
+`privateKeySecretName` is required if `id` is provided.
 
-`privatekeySecretName` can be generated using [ipfs-key](https://github.com/whyrusleeping/ipfs-key) tool.
+`privateKeySecretName` can be generated using [ipfs-key](https://github.com/whyrusleeping/ipfs-key) tool.
 
 ```bash
 ipfs-key -type ed25519 | base64

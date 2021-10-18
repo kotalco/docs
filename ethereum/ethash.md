@@ -24,7 +24,7 @@ metadata:
   name: besu-ethash-node
 spec:
   client: besu
-  nodePrivatekeySecretName: besu-ethash-nodekey
+  nodePrivateKeySecretName: besu-ethash-nodekey
   rpc: true
   miner: true
   coinbase: "0xbAa5f05af4A67A467cEcA89085f162aFb4206Aaa"
@@ -114,7 +114,7 @@ spec:
   miner: true
   coinbase: "0xc1381ED43B327e3C7A1ADb21285f1e9cB82Bc00d"
   import:
-    privatekeySecretName: geth-ethash-account-key
+    privateKeySecretName: geth-ethash-account-key
     passwordSecretName: geth-ethash-account-password
   staticNodes:
     - besu-ethash-node
@@ -125,7 +125,7 @@ spec:
 ```
 {% endcode %}
 
-In this node, we're using go-ethereum client `client: geth`, turning on Proof of Work mining `miner: true`, setting the address that will collect block reward using `coinbase`, and loading the miner account private key and password from kubernetes secrets `privatekeySecretName: ...` and `passwordSecretName: ...`. We're connecting to the first node using `staticNodes` option which accepts `Node` name or enode url.
+In this node, we're using go-ethereum client `client: geth`, turning on Proof of Work mining `miner: true`, setting the address that will collect block reward using `coinbase`, and loading the miner account private key and password from kubernetes secrets `privateKeySecretName: ...` and `passwordSecretName: ...`. We're connecting to the first node using `staticNodes` option which accepts `Node` name or enode url.
 
 {% hint style="info" %}
 `staticNodes` accept `Node` name or enode URL. `Node` name has the format of `name.namespace`, namespace is optional if `Node` is in the same namespace. If the node doesn't exist, or is not up and running yet, Kotal will not raise an error.

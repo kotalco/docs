@@ -16,7 +16,7 @@
 | [import](#import)                    | object  | ethereum account to import for `geth` node                            |                                     |
 | [logging](#logging)                  | string  | node logging verbosity level                                          | `info`                              |
 | [miner](#miner)                      | boolean | node is mining or signing blocks ?                                    | false                               |
-| [nodePrivatekeySecretName](#nodePrivatekeySecretName)                  | string  | name of kubernetes secret holding node private key                                                      |                                     |
+| [nodePrivateKeySecretName](#nodePrivateKeySecretName)                  | string  | name of kubernetes secret holding node private key                                                      |                                     |
 | [p2pPort](#p2pport)                  | string  | node p2p port                                                         | `30303`                             |
 | [resources](#resources)              | object  | node compute and storage resources to alloacte                        |                                     |
 | [rpc](#rpc)                          | boolean | enable HTTP RPC server                                                | `false`                             |
@@ -114,7 +114,7 @@ Account must be imported if the node is running with `geth`, `nethermind`, or `p
 
 | Syntax               | Type   | Description                                                                                               |
 | -------------------- | ------ | --------------------------------------------------------------------------------------------------------- |
-| privatekeySecretName | string | name of the k8s secret holding account private key in hexadecimal (without 0x) in data field called `key` |
+| privateKeySecretName | string | name of the k8s secret holding account private key in hexadecimal (without 0x) in data field called `key` |
 | passwordSecretName   | string | name of the k8s secret holding encryption secret in data field called `password`                          |
 
 ### logging
@@ -144,11 +144,11 @@ Different clients support different logging vrbosity levels as shown in the foll
 Parity (OpenEthereum) client doesn't support PoW mining.
 {% endhint %}
 
-### nodePrivatekeySecretName
+### nodePrivateKeySecretName
 
-`nodePrivatekeySecretName` is the node private key.
+`nodePrivateKeySecretName` is the node private key.
 
-`nodePrivatekeySecretName` is required if the node is a boot node `bootnode: true`, or if besu node with `client: besu` is a signer in proof of authority clique network or validator in ibft2 network.
+`nodePrivateKeySecretName` is required if the node is a boot node `bootnode: true`, or if besu node with `client: besu` is a signer in proof of authority clique network or validator in ibft2 network.
 
 ### p2pPort
 

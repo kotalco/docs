@@ -63,7 +63,7 @@ spec:
   # from step(3)
   id: "12D3KooWBcEtY8GH4mNkri9kM3haeWhEXtQV7mi81ErWrqLYGuiq"
   # from step(4)
-  privatekeySecretName: cluster-peer-privatekey
+  privateKeySecretName: cluster-peer-privatekey
   # from step(1)
   peerEndpoint: /dns4/peer-sample/tcp/5001
   # from step(2)

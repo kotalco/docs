@@ -24,7 +24,7 @@ metadata:
   name: besu-ibft2-node
 spec:
   client: besu
-  nodePrivatekeySecretName: besu-ibft2-nodekey
+  nodePrivateKeySecretName: besu-ibft2-nodekey
   rpc: true
   genesis:
     chainId: 4444
@@ -114,7 +114,7 @@ spec:
   miner: true
   coinbase: "0xc1381ED43B327e3C7A1ADb21285f1e9cB82Bc00d"
   import:
-    privatekeySecretName: geth-ibft2-account-key
+    privateKeySecretName: geth-ibft2-account-key
     passwordSecretName: geth-ibft2-account-password
   staticNodes:
     - besu-ibft2-node
@@ -129,7 +129,7 @@ spec:
 ```
 {% endcode %}
 
-In this node, we're using go-ethereum client `client: geth`, starting the PoA consensus engine `miner: true`, setting the second address in the genesis validators list `spec.genesis.ibft2.validators` as the coinbase `coinbase: "0xc1381ED43B327e3C7A1ADb21285f1e9cB82Bc00d"`, and loading the validator account private key and password from kubernetes secrets `privatekeySecretName: ...` and `passwordSecretName: ...`. We're connecting to the first node using `staticNodes` option which accepts `Node` name or enode url.
+In this node, we're using go-ethereum client `client: geth`, starting the PoA consensus engine `miner: true`, setting the second address in the genesis validators list `spec.genesis.ibft2.validators` as the coinbase `coinbase: "0xc1381ED43B327e3C7A1ADb21285f1e9cB82Bc00d"`, and loading the validator account private key and password from kubernetes secrets `privateKeySecretName: ...` and `passwordSecretName: ...`. We're connecting to the first node using `staticNodes` option which accepts `Node` name or enode url.
 
 {% hint style="info" %}
 `staticNodes` accept `Node` name or enode URL. `Node` name has the format of `name.namespace`, namespace is optional if `Node` is in the same namespace. If the node doesn't exist, or is not up and running yet, Kotal will not raise an error.
