@@ -9,7 +9,7 @@ kind: Node
 metadata:
   name: polkadot-node
 spec:
-  network: rinkeby
+  network: polkadot
   rpc: true
   rpcPort: 8888
 ```
@@ -33,29 +33,6 @@ It will return an output similar to the following:
 ```bash
 NAME             NETWORK     VALIDATOR
 polkadot-node    polkadot    fasle
-```
-
-## Fetch Node Logs
-
-
-Apply `rinkeby.yaml` manifest:
-
-```bash
-kubectl apply -f rinkeby.yaml
-```
-
-Kotal operator will notice your `polkadot-node` and will create all the necessary pods, persistent volumes, services, configmaps, and secrets neccessary.
-
-You can fetch the deployed Polkadot `Node` using:
-
-```bash
-kubectl get nodes.polkadot
-```
-It will return an output similar to the following:
-
-```bash
-NAME                 CLIENT   Consensus   Network
-polkadot-node        besu     poa         rinkeby
 ```
 
 ## Fetch Node Logs
