@@ -1,11 +1,11 @@
 ## Node
 
-| Syntax                                                    | Type   | Description                                             | Default |
-| --------------------------------------------------------- | ------ | ------------------------------------------------------- | ------- |
-| [network](#network) <sup>required</sup>                   | string | polkadot network/chain to join and sync                 |         |
-| [p2pPort](#p2p-port)                                      | string | p2p protocol tcp port                                   | 30333   |
-| [nodePrivateKeySecretName](#node-private-key-secret-name) | string | Kubernetes secret name holding node Ed25519 private key |         |
-| [resources](#resources)                                   | object | node compute and storage resources to alloacte          |         |
+| Syntax                                                | Type   | Description                                             | Default |
+| ----------------------------------------------------- | ------ | ------------------------------------------------------- | ------- |
+| [network](#network) <sup>required</sup>               | string | polkadot network/chain to join and sync                 |         |
+| [p2pPort](#p2pport)                                   | string | p2p protocol tcp port                                   | 30333   |
+| [nodePrivateKeySecretName](#nodeprivatekeysecretname) | string | Kubernetes secret name holding node Ed25519 private key |         |
+| [resources](#resources)                               | object | node compute and storage resources to alloacte          |         |
 
 ### network
 
