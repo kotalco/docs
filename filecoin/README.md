@@ -1,14 +1,14 @@
-We've extended Kubernetes with `Node` custom resource which can be used to create Filecoin nodes across different filecoin networks like Mainnet or Nerpa using `lotus` client from a given spec.
+We've extended Kubernetes with `Node` custom resource which can be used to create Filecoin nodes across different filecoin networks like Mainnet or calibration using `lotus` client from a given spec.
 
-Here's an example of a Filecoin node that syncs Nerpa chain:
+Here's an example of a Filecoin node that syncs calibration chain:
 
 ```yaml
 apiVersion: filecoin.kotal.io/v1alpha1
 kind: Node
 metadata:
-  name: nerpa-node
+  name: calibration-node
 spec:
-  network: nerpa
+  network: calibration
 ```
 
 For all the fields associated with the `Node` API resource:
