@@ -1,11 +1,20 @@
 ## Node
 
-| Syntax                                                | Type   | Description                                             | Default |
-| ----------------------------------------------------- | ------ | ------------------------------------------------------- | ------- |
-| [network](#network) <sup>required</sup>               | string | polkadot network/chain to join and sync                 |         |
-| [p2pPort](#p2pport)                                   | string | p2p protocol tcp port                                   | 30333   |
-| [nodePrivateKeySecretName](#nodeprivatekeysecretname) | string | Kubernetes secret name holding node Ed25519 private key |         |
-| [resources](#resources)                               | object | node compute and storage resources to alloacte          |         |
+| Syntax                                                | Type    | Description                                             | Default                               |
+| ----------------------------------------------------- | ------- | ------------------------------------------------------- | ------------------------------------- |
+| [network](#network) <sup>required</sup>               | string  | polkadot network/chain to join and sync                 |                                       |
+| [p2pPort](#p2pport)                                   | string  | p2p protocol tcp port                                   | 30333                                 |
+| [nodePrivateKeySecretName](#nodeprivatekeysecretname) | string  | Kubernetes secret name holding node Ed25519 private key |                                       |
+| [validator](#validator)                               | boolean | enables validator                                       | false                                 |
+| [syncMode](#syncmode)                                 | string  | blockchain synchronization mode                         | full                                  |
+| [pruning](#pruning)                                   | boolean | whether to keep only recent or all blocks               | false                                 |
+| [retainedBlocks](#retainedblocks)                     | number  | number of blocks to keep state for                      | 256                                   |
+| [logging](#logging)                                   | string  | logging verboisty level                                 | info                                  |
+| [telemetry](#telemetry)                               | boolean | enables connecting to telemetry server                  | false                                 |
+| [telemetryURL](#telemetryurl)                         | string  | telemetry service URL                                   | wss://telemetry.polkadot.io/submit/ 0 |
+| [prometheus](#prometheus)                             | string  | exposes prometheus exporter endpoint                    | false                                 |
+| [prometheusPort](#prometheusport)                     | number  | prometheus exporter port                                | 9615                                  |
+| [resources](#resources)                               | object  | node compute and storage resources to alloacte          |                                       |
 
 ### network
 
@@ -35,8 +44,48 @@ Create node private key secret:
 kubectl create secret generic polkadot-node-key  --from-file=key=node.key.hex
 ```
 
-`polkadot-node-key` secret can be used in your polkadot `Node` by updating `.spec` with `nodePrivateKeySecretName: polkadot-node-key`
+`polkadot-node-key` secret can be used in your polkadot `Node` by updating `.spec` with `nodePrivateKeySecretName: polkadot-node-key`.
 
+### validator
+
+`validator` enables validator.
+
+{% hint style="danger" %}
+Node must sync blocks in archive mode `pruning: false` if validator is enabled.
+{% endhint %}
+
+### syncMode
+
+`syncMode` is blockchain synchronization mode. Available values are `fast` and `full`.
+
+### pruning
+
+`pruning` controls whether to keep only recent or all blocks. Setting `pruning` to `false` runs the node in archive mode.
+
+### retainedBlocks
+
+`retainedBlocks` is the number of blocks to keep state for. It's only considered if `.spec.pruning` is set to `true`.
+
+### logging
+
+`logging` is logging verboisty level. Available logging levels are `error`, `warn`, `info`, `debug`, and `trace`.
+
+
+### telemetry
+
+`telemetry` enables connecting to telemetry server.
+
+### telemetryURL
+
+`telemetryURL` is telemetry service URL. It's only considered if `.spec.telemetry` is set to `true`.
+
+### promethems
+
+`prometheus` exposes prometheus exporter endpoint.
+
+### prometheusPort
+ 
+`prometheusPort`  
 
 ### resources
 
