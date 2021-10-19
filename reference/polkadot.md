@@ -1,20 +1,25 @@
 ## Node
 
-| Syntax                                                | Type    | Description                                             | Default                               |
-| ----------------------------------------------------- | ------- | ------------------------------------------------------- | ------------------------------------- |
-| [network](#network) <sup>required</sup>               | string  | polkadot network/chain to join and sync                 |                                       |
-| [p2pPort](#p2pport)                                   | string  | p2p protocol tcp port                                   | 30333                                 |
-| [nodePrivateKeySecretName](#nodeprivatekeysecretname) | string  | Kubernetes secret name holding node Ed25519 private key |                                       |
-| [validator](#validator)                               | boolean | enables validator                                       | false                                 |
-| [syncMode](#syncmode)                                 | string  | blockchain synchronization mode                         | full                                  |
-| [pruning](#pruning)                                   | boolean | whether to keep only recent or all blocks               | false                                 |
-| [retainedBlocks](#retainedblocks)                     | number  | number of blocks to keep state for                      | 256                                   |
-| [logging](#logging)                                   | string  | logging verboisty level                                 | info                                  |
-| [telemetry](#telemetry)                               | boolean | enables connecting to telemetry server                  | false                                 |
-| [telemetryURL](#telemetryurl)                         | string  | telemetry service URL                                   | wss://telemetry.polkadot.io/submit/ 0 |
-| [prometheus](#prometheus)                             | string  | exposes prometheus exporter endpoint                    | false                                 |
-| [prometheusPort](#prometheusport)                     | number  | prometheus exporter port                                | 9615                                  |
-| [resources](#resources)                               | object  | node compute and storage resources to alloacte          |                                       |
+| Syntax                                                | Type    | Description                                                        | Default                               |
+| ----------------------------------------------------- | ------- | ------------------------------------------------------------------ | ------------------------------------- |
+| [network](#network) <sup>required</sup>               | string  | polkadot network/chain to join and sync                            |                                       |
+| [p2pPort](#p2pport)                                   | string  | p2p protocol tcp port                                              | 30333                                 |
+| [nodePrivateKeySecretName](#nodeprivatekeysecretname) | string  | Kubernetes secret name holding node Ed25519 private key            |                                       |
+| [validator](#validator)                               | boolean | enables validator                                                  | false                                 |
+| [syncMode](#syncmode)                                 | string  | blockchain synchronization mode                                    | full                                  |
+| [pruning](#pruning)                                   | boolean | whether to keep only recent or all blocks                          | false                                 |
+| [retainedBlocks](#retainedblocks)                     | number  | number of blocks to keep state for                                 | 256                                   |
+| [logging](#logging)                                   | string  | logging verboisty level                                            | info                                  |
+| [telemetry](#telemetry)                               | boolean | enables connecting to telemetry server                             | false                                 |
+| [telemetryURL](#telemetryurl)                         | string  | telemetry service URL                                              | wss://telemetry.polkadot.io/submit/ 0 |
+| [prometheus](#prometheus)                             | string  | exposes prometheus exporter endpoint                               | false                                 |
+| [prometheusPort](#prometheusport)                     | number  | prometheus exporter port                                           | 9615                                  |
+| [rpc](#rpc)                                           | boolean | enables JSON-RPC server                                            | false                                 |
+| [rpcPort](#rpcport)                                   | number  | JSON-RPC server port                                               | 9933                                  |
+| [ws](#ws)                                             | boolean | enables Websocket server                                           | false                                 |
+| [wsPort](#wsport)                                     | number  | Websocket server port                                              | 9944                                  |
+| [corsDomains](#corsdomains)                           | array   | browser origins allowed to access the JSON-RPC HTTP and WS servers | all                                   |
+| [resources](#resources)                               | object  | node compute and storage resources to alloacte                     |                                       |
 
 ### network
 
@@ -85,7 +90,27 @@ Node must sync blocks in archive mode `pruning: false` if validator is enabled.
 
 ### prometheusPort
  
-`prometheusPort`  
+`prometheusPort` is prometheus exporter port
+
+### rpc
+
+`rpc` enables JSON-RPC server.
+
+### rpcPort
+
+`rpcPort` is JSON-RPC server port.
+
+### ws
+
+`ws` enables Websocket server.
+
+### wsPort
+
+`wsPort` is Websocket server port.
+
+### corsDomains
+
+`corsDomains` is browser origins allowed to access the JSON-RPC HTTP and WS servers.
 
 ### resources
 
