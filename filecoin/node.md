@@ -1,7 +1,3 @@
-{% hint style="warning" %}
-Kotal support for Filecoin is still very early, so we're not exposing lots of management and integration features.
-{% endhint %}
-
 ## Deploy Node
 
 {% code title="calibration.yaml" %}
