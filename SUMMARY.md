@@ -32,5 +32,6 @@
 
 * [Ethereum](reference/ethereum.md)
 * [Ethereum 2.0](reference/ethereum2.md)
+* [Polkadot](reference/polkadot.md)
 * [IPFS](reference/ipfs.md)
 * [Filecoin](reference/filecoin.md)
