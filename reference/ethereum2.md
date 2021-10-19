@@ -1,21 +1,21 @@
 ## BeaconNode
 
-| Syntax                           | Type   | Description                        | Default |
-| -------------------------------- | ------ | ---------------------------------- | ------- |
-| [network](#network)              | string | Network to join                    |         |
-| [client](#client)                | string | Ethereum 2.0 client to use         |         |
+| Syntax                          | Type   | Description                        | Default |
+| ------------------------------- | ------ | ---------------------------------- | ------- |
+| [network](#network)             | string | Network to join                    |         |
+| [client](#client)               | string | Ethereum 2.0 client to use         |         |
 | [eth1Endpoints](#eth1endpoints) | array  | Ethereum 1 JSON RPC endpoints      |         |
-| [rest](#rest)                    | bool   | Enable REST API server             | false   |
+| [rest](#rest)                   | bool   | Enable REST API server             | false   |
 | [restHost](#resthost)           | string | REST API server host               | 0.0.0.0 |
 | [restPort](#restport)           | number | REST API server port               | 5051    |
-| [rpc](#rpc)                      | bool   | Enables JSON RPC server            | false   |
+| [rpc](#rpc)                     | bool   | Enables JSON RPC server            | false   |
 | [rpcHost](#rpchost)             | string | JSON RPC server host               | 0.0.0.0 |
 | [rpcPort](#rpcport)             | number | JSON RPC server port               | 4000    |
-| [grpc](#grpc)                    | bool   | GRPC gateway server                | false   |
+| [grpc](#grpc)                   | bool   | GRPC gateway server                | false   |
 | [grpcHost](#grpchost)           | string | GRPC gateway server host           | 0.0.0.0 |
 | [grpcPort](#grpcport)           | number | GRPC gateway server port           | 3500    |
 | [p2pPort](#p2pport)             | number | p2p and discovery port             | 9000    |
-| [resources](#resources)          | object | Node compute and storage resources |         |
+| [resources](#resources)         | object | Node compute and storage resources |         |
 
 ### network
 
@@ -96,14 +96,14 @@ GRPC gateway is only supported by `prysm` client.
 
 `resources` object has the following fields:
 
-| Syntax      | Type   | Description                                 | Defalt  |
-| ----------- | ------ | ------------------------------------------- | ------- |
-| cpu         | string | number of cpu cores this node requires      | `4`     |
-| cpuLimit    | string | number of cpu cores this node is limited to | `8`     |
-| memory      | string | memory this node requires                   | `8Gi`   |
-| memoryLimit | string | memory this node is limited to              | `16Gi`  |
-| storage     | string | disk space this node requires               | `200Gi` |
-| storageClass | string | Node volume storage class                  | Cluster's default storage class will be used as defined by cluster admin or cloud provider  |
+| Syntax       | Type   | Description                                 | Defalt                                                                                     |
+| ------------ | ------ | ------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| cpu          | string | number of cpu cores this node requires      | `4`                                                                                        |
+| cpuLimit     | string | number of cpu cores this node is limited to | `8`                                                                                        |
+| memory       | string | memory this node requires                   | `8Gi`                                                                                      |
+| memoryLimit  | string | memory this node is limited to              | `16Gi`                                                                                     |
+| storage      | string | disk space this node requires               | `200Gi`                                                                                    |
+| storageClass | string | Node volume storage class                   | Cluster's default storage class will be used as defined by cluster admin or cloud provider |
 
 memory and storage requests and limits must use the pattern `^[1-9][0-9]*[KMGTPE]i$` for example `1500Mi`, `30Gi`, and `1Ti`.
 
@@ -111,7 +111,7 @@ cpu requests and limits must use the pattern `^[1-9][0-9]*m?$` for example `1000
 
 `cpuLimit` can't be less than `cpu`.
 
-`memoryLimit` can't be less than `memory`.
+`memoryLimit` can't be less than or equal to `memory`.
 
 `storageClass` field is immutable, it cannot be changed after creation.
 
@@ -215,4 +215,4 @@ cpu requests and limits must use the pattern `^[1-9][0-9]*m?$` for example `1000
 
 `cpuLimit` can't be less than `cpu`.
 
-`memoryLimit` can't be less than `memory`.
+`memoryLimit` can't be less than or equal to `memory`.

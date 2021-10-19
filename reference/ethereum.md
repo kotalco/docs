@@ -1,32 +1,32 @@
 ## Node
 
-| Syntax                               | Type    | Description                                                           | Default                             |
-| ------------------------------------ | ------- | --------------------------------------------------------------------- | ----------------------------------- |
-| [network](#network)                  | string  | Public network name to join, like `mainnet`, `rinkeby`, and `goerli`  |                                     |
-| [highlyAvailable](#highly-available) | boolean | Ethereum nodes will be scheduled on different kubernetes nodes        | `false`                             |
-| [topologyKey](#topology-key)         | string  | kubernetes node label key used to distribute ethereum nodes           | `topology.kubernetes.io/zone`       |
-| [genesis](#genesis)                  | object  | Genesis block configuration                                           |                                     |
-| [bootnodes](#bootnodes)              | array   | ethereum node URLs for p2p discovery bootstrap                        |                                     |
-| [client](#client)                    | string  | ethereum client powering the node                                     |                                     |
-| [coinbase](#coinbase)                | string  | ethereum account to which mining rewards are paid                     |                                     |
-| [corsDomains](#corsdomains)          | array   | domains from which to accept cross origin requests (browser enforced) | `*`                                 |
-| [graphql](#graphql)                  | boolean | enable GraphQL server                                                 | `false`                             |
-| [graphqlPort](#graphqlport)          | number  | GraphQL server listening port                                         | `8547`                              |
-| [hosts](#hosts)                      | array   | hostnames to whitelist for RPC access (server enforced)               | `*`                                 |
-| [import](#import)                    | object  | ethereum account to import for `geth` node                            |                                     |
-| [logging](#logging)                  | string  | node logging verbosity level                                          | `info`                              |
-| [miner](#miner)                      | boolean | node is mining or signing blocks ?                                    | false                               |
-| [nodePrivateKeySecretName](#nodePrivateKeySecretName)                  | string  | name of kubernetes secret holding node private key                                                      |                                     |
-| [p2pPort](#p2pport)                  | string  | node p2p port                                                         | `30303`                             |
-| [resources](#resources)              | object  | node compute and storage resources to alloacte                        |                                     |
-| [rpc](#rpc)                          | boolean | enable HTTP RPC server                                                | `false`                             |
-| [rpcPort](#rpcport)                  | number  | HTTP RPC server listening port                                        | `8545`                              |
-| [rpcAPI](#rpcapi)                    | array   | services to enable                                                    | `web3`, `eth`, and `net`            |
-| [staticNodes](#staticnodes)          | array   | set of trusted ethereum nodes to maintain connection to               |                                     |
-| [syncMode](#syncmode)                | string  | blockchain synchronization mode                                       | `fast` in public, `full` in private |
-| [ws](#ws)                            | boolean | enable web socket server                                              | `false`                             |
-| [wsPort](#wsport)                    | number  | web socket server listening port                                      | `8546`                              |
-| [wsAPI](#wsapi)                      | array   | services to enable                                                    | `web3`, `eth`, and `net`            |
+| Syntax                                                | Type    | Description                                                           | Default                             |
+| ----------------------------------------------------- | ------- | --------------------------------------------------------------------- | ----------------------------------- |
+| [network](#network)                                   | string  | Public network name to join, like `mainnet`, `rinkeby`, and `goerli`  |                                     |
+| [highlyAvailable](#highly-available)                  | boolean | Ethereum nodes will be scheduled on different kubernetes nodes        | `false`                             |
+| [topologyKey](#topology-key)                          | string  | kubernetes node label key used to distribute ethereum nodes           | `topology.kubernetes.io/zone`       |
+| [genesis](#genesis)                                   | object  | Genesis block configuration                                           |                                     |
+| [bootnodes](#bootnodes)                               | array   | ethereum node URLs for p2p discovery bootstrap                        |                                     |
+| [client](#client)                                     | string  | ethereum client powering the node                                     |                                     |
+| [coinbase](#coinbase)                                 | string  | ethereum account to which mining rewards are paid                     |                                     |
+| [corsDomains](#corsdomains)                           | array   | domains from which to accept cross origin requests (browser enforced) | `*`                                 |
+| [graphql](#graphql)                                   | boolean | enable GraphQL server                                                 | `false`                             |
+| [graphqlPort](#graphqlport)                           | number  | GraphQL server listening port                                         | `8547`                              |
+| [hosts](#hosts)                                       | array   | hostnames to whitelist for RPC access (server enforced)               | `*`                                 |
+| [import](#import)                                     | object  | ethereum account to import for `geth` node                            |                                     |
+| [logging](#logging)                                   | string  | node logging verbosity level                                          | `info`                              |
+| [miner](#miner)                                       | boolean | node is mining or signing blocks ?                                    | false                               |
+| [nodePrivateKeySecretName](#nodePrivateKeySecretName) | string  | name of kubernetes secret holding node private key                    |                                     |
+| [p2pPort](#p2pport)                                   | string  | node p2p port                                                         | `30303`                             |
+| [resources](#resources)                               | object  | node compute and storage resources to alloacte                        |                                     |
+| [rpc](#rpc)                                           | boolean | enable HTTP RPC server                                                | `false`                             |
+| [rpcPort](#rpcport)                                   | number  | HTTP RPC server listening port                                        | `8545`                              |
+| [rpcAPI](#rpcapi)                                     | array   | services to enable                                                    | `web3`, `eth`, and `net`            |
+| [staticNodes](#staticnodes)                           | array   | set of trusted ethereum nodes to maintain connection to               |                                     |
+| [syncMode](#syncmode)                                 | string  | blockchain synchronization mode                                       | `fast` in public, `full` in private |
+| [ws](#ws)                                             | boolean | enable web socket server                                              | `false`                             |
+| [wsPort](#wsport)                                     | number  | web socket server listening port                                      | `8546`                              |
+| [wsAPI](#wsapi)                                       | array   | services to enable                                                    | `web3`, `eth`, and `net`            |
 
 
 ### network
@@ -125,16 +125,16 @@ Account must be imported if the node is running with `geth`, `nethermind`, or `p
 
 Different clients support different logging vrbosity levels as shown in the following table:
 
-| Logging/Client | Hyperledger Besu   | Go Ethereum        | Parity (OpenEthereum) | Nethermind            | 
-| -------------- | ------------------ | ------------------ | --------------------- | --------------------- |
-| `off`          | ✔️                  | ✔️                  | ❌                    |   ❌                   |
-| `fatal`        | ✔️                  | ❌                 | ❌                     | ❌                    |
-| `error`        | ✔️                  | ✔️                  | ✔️                     | ✔️                     |
-| `warn`         | ✔️                  | ✔️                  | ✔️                     | ✔️                     |
-| `debug`        | ✔️                  | ✔️                  | ✔️                     | ✔️                     |
-| `info`         | ✔️                  | ✔️                  | ✔️                     | ✔️                     |
-| `trace`        | ✔️                  | ❌                 | ✔️                     | ✔️                     |
-| `all`          | ✔️                  | ✔️                  | ❌                    | ❌                     |
+| Logging/Client | Hyperledger Besu | Go Ethereum | Parity (OpenEthereum) | Nethermind |
+| -------------- | ---------------- | ----------- | --------------------- | ---------- |
+| `off`          | ✔️                | ✔️           | ❌                     | ❌          |
+| `fatal`        | ✔️                | ❌           | ❌                     | ❌          |
+| `error`        | ✔️                | ✔️           | ✔️                     | ✔️          |
+| `warn`         | ✔️                | ✔️           | ✔️                     | ✔️          |
+| `debug`        | ✔️                | ✔️           | ✔️                     | ✔️          |
+| `info`         | ✔️                | ✔️           | ✔️                     | ✔️          |
+| `trace`        | ✔️                | ❌           | ✔️                     | ✔️          |
+| `all`          | ✔️                | ✔️           | ❌                     | ❌          |
 
 ### miner
 
@@ -173,7 +173,7 @@ cpu requests and limits must use the pattern `^[1-9][0-9]*m?$` for example `1000
 
 `cpuLimit` can't be less than `cpu`.
 
-`memoryLimit` can't be less than `memory`.
+`memoryLimit` can't be less than or equal to `memory`.
 
 `storageClass` field is immutable, it cannot be changed after creation.
 
@@ -236,21 +236,21 @@ the default value `["web3", "eth", "net]` will be used if the web socket server 
 
 Genesis block configuration `genesis` is required in private networks.
 
-| Syntax      | Type |  Description | Default |
-| ----------- |------| ----------- | ------ |
-| [chainId](#chainid)   | number | used in transaction signature to prevent transactions reply [eip155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md) | |
-| [networkId](#networkid)   | number | used in network p2p communications | |
-| [coinbase](#coinbase) | string | benefeciary (ethereum address) of mining reward | `address(0)`|
-| [difficulty](#difficulty)| string | difficulty (hexadecimal number) of the genesis block | `0x1` |
-| [mixHash](#mixhash)| string | hash (hexadecimal) combined with nonce to prove effort spent to create block | `0x00..00` |
-| [gasLimit](#gaslimit)| string | total gas limit (hexadecimal number) for all transactions in a block | `0x47b760` |
-| [nonce](#nonce)| string | random hexadecimal number used in block computation | `0x0` |
-| [timestamp](#timestamp)| string | genesis block creation date (hexadecimal) | `0x0` |
-| [accounts](#accounts)      | Array | array of accounts to prefund and store code | |
-| [forks](#forks)|  object | supported forks and corresponding block number| |
-| [ethash](#ethash)| object | Proof of Work consensus configuration | |
-| [clique](#clique)| object | Proof of Authority consensus configuration | |
-| [ibft2](#ibft2)| object | IBFT2 consensus configuration | |
+| Syntax                    | Type   | Description                                                                                                                        | Default      |
+| ------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [chainId](#chainid)       | number | used in transaction signature to prevent transactions reply [eip155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md) |              |
+| [networkId](#networkid)   | number | used in network p2p communications                                                                                                 |              |
+| [coinbase](#coinbase)     | string | benefeciary (ethereum address) of mining reward                                                                                    | `address(0)` |
+| [difficulty](#difficulty) | string | difficulty (hexadecimal number) of the genesis block                                                                               | `0x1`        |
+| [mixHash](#mixhash)       | string | hash (hexadecimal) combined with nonce to prove effort spent to create block                                                       | `0x00..00`   |
+| [gasLimit](#gaslimit)     | string | total gas limit (hexadecimal number) for all transactions in a block                                                               | `0x47b760`   |
+| [nonce](#nonce)           | string | random hexadecimal number used in block computation                                                                                | `0x0`        |
+| [timestamp](#timestamp)   | string | genesis block creation date (hexadecimal)                                                                                          | `0x0`        |
+| [accounts](#accounts)     | Array  | array of accounts to prefund and store code                                                                                        |              |
+| [forks](#forks)           | object | supported forks and corresponding block number                                                                                     |              |
+| [ethash](#ethash)         | object | Proof of Work consensus configuration                                                                                              |              |
+| [clique](#clique)         | object | Proof of Authority consensus configuration                                                                                         |              |
+| [ibft2](#ibft2)           | object | IBFT2 consensus configuration                                                                                                      |              |
 
 ### chainId
 
@@ -260,16 +260,16 @@ Genesis block configuration `genesis` is required in private networks.
 
 `chainId` can't reuse existing public network chain id to avoid transaction replay.
 
-| Network      | Chain id |
-| ----------- |------|
-| mainnet | 1 |
-| ropsten | 3 |
-| rinkeby | 4 |
-| goerli | 5 |
-| kotti | 6 |
-| ethereum classic | 61 |
-| Mordor | 63 |
-| development | 2018 |
+| Network          | Chain id |
+| ---------------- | -------- |
+| mainnet          | 1        |
+| ropsten          | 3        |
+| rinkeby          | 4        |
+| goerli           | 5        |
+| kotti            | 6        |
+| ethereum classic | 61       |
+| Mordor           | 63       |
+| development      | 2018     |
 
 ### networkId
 
@@ -331,20 +331,20 @@ Later forks like `muirglacier` can't be activated before earlier forks like `hom
 Note that `homestead` fork will be ignored in PoA Clique consensus network by Parity (OpenEthereum) client.
 {% endhint %}
 
-| Syntax      | Type |  Description |
-| ----------- |------| ----------- |
-| homestead | number | [Homestead](https://blog.ethereum.org/2016/02/29/homestead-release/) fork activation block number |
-| dao | number | [DAO](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-779.md) fork activation block number |
-| eip150 | number | [eip150](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-150.md) fork activation block number |
-| eip155 | number | [eip155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md) fork activation block number |
-| eip158 | number | [eip158](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-158.md) fork activation block number |
-| byzantium | number | [Byzantium](https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement/) fork activation block number |
+| Syntax         | Type   | Description                                                                                                                                    |
+| -------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| homestead      | number | [Homestead](https://blog.ethereum.org/2016/02/29/homestead-release/) fork activation block number                                              |
+| dao            | number | [DAO](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-779.md) fork activation block number                                               |
+| eip150         | number | [eip150](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-150.md) fork activation block number                                            |
+| eip155         | number | [eip155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md) fork activation block number                                            |
+| eip158         | number | [eip158](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-158.md) fork activation block number                                            |
+| byzantium      | number | [Byzantium](https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement/) fork activation block number                                      |
 | constantinople | number | [Constantipole](https://blog.ethereum.org/2019/02/22/ethereum-constantinople-st-petersburg-upgrade-announcement/) fork activation block number |
-| petersburg | number | [Petersburg](https://blog.ethereum.org/2019/02/22/ethereum-constantinople-st-petersburg-upgrade-announcement/) fork activation block number |
-| istanbul | number | [Istanbul](https://eips.ethereum.org/EIPS/eip-1679) fork activation block number |
-| muirglacier | number | [Muir Glacier](https://eips.ethereum.org/EIPS/eip-2387) fork activation block number |
-| berlin | number | [Berlin](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/berlin.md) fork activation block number |
-| london | number | [London](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/london.md) fork activation block number |
+| petersburg     | number | [Petersburg](https://blog.ethereum.org/2019/02/22/ethereum-constantinople-st-petersburg-upgrade-announcement/) fork activation block number    |
+| istanbul       | number | [Istanbul](https://eips.ethereum.org/EIPS/eip-1679) fork activation block number                                                               |
+| muirglacier    | number | [Muir Glacier](https://eips.ethereum.org/EIPS/eip-2387) fork activation block number                                                           |
+| berlin         | number | [Berlin](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/berlin.md) fork activation block number     |
+| london         | number | [London](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/london.md) fork activation block number     |
 
 ### accounts
 
@@ -356,12 +356,12 @@ Note that `homestead` fork will be ignored in PoA Clique consensus network by Pa
 
 a single account has no defaults.
 
-| Syntax      | Type |  Description |
-| ----------- |------| ----------- |
-| address | string | ethereum address |
-| balance | string | account balance in hexadecimal |
-| code | string | bytecode in hexadecimal |
-| storage | map | key is the storage location in hexadecimal, and value in hexadecimal is the storage value |
+| Syntax  | Type   | Description                                                                               |
+| ------- | ------ | ----------------------------------------------------------------------------------------- |
+| address | string | ethereum address                                                                          |
+| balance | string | account balance in hexadecimal                                                            |
+| code    | string | bytecode in hexadecimal                                                                   |
+| storage | map    | key is the storage location in hexadecimal, and value in hexadecimal is the storage value |
 
 ### ethash
 
@@ -377,9 +377,9 @@ a single account has no defaults.
 `ethash.fixedDifficulty` is only supported by Hyperledger Besu Client `client: besu`
 {% endhint %}
 
-| Syntax      | Type |  Description | Default |
-| ----------- |------| ----------- | ---- |
-| fixedDifficulty | number | fixed difficulty used in block computation | |
+| Syntax          | Type   | Description                                | Default |
+| --------------- | ------ | ------------------------------------------ | ------- |
+| fixedDifficulty | number | fixed difficulty used in block computation |         |
 
 ### clique
 
@@ -391,11 +391,11 @@ a single account has no defaults.
 
 At least one signer in `clique.signers` is required.
 
-| Syntax      | Type |  Description | Default |
-| ----------- |------| ----------- | ---|
-| blockPeriod | number | block time in seconds | 15 |
-| epochLength | number | number of blocks after which to reset all votes | 1000 |
-| signers | Array | array of ethereum addresses |
+| Syntax      | Type   | Description                                     | Default |
+| ----------- | ------ | ----------------------------------------------- | ------- |
+| blockPeriod | number | block time in seconds                           | 15      |
+| epochLength | number | number of blocks after which to reset all votes | 1000    |
+| signers     | Array  | array of ethereum addresses                     |
 
 ### ibft2
 
@@ -407,13 +407,13 @@ At least one signer in `clique.signers` is required.
 
 At least one validator in `ibft2.validators` is required.
 
-| Syntax      | Type |  Description | Default |
-| ----------- | ---- | ------------ | ------- |
-| blockPeriod | number | block time in seconds | 15 |
-| epochLength | number | number of blocks after which to reset all votes | 1000 |
-| validators | array | array of ethereum addresses |
-| requestTimeout | number | timeout for each consensus round in seconds | 10 |
-| messageQueueLimit | number | message queue limit | 1000 |
-| duplicateMessageLimit | number | duplicate messages limit | 100 |
-| futureMessagesLimit | number | future messages buffer limit | 1000 |
-| futureMessagesMaxDistance | number | maximum height from current chain height for buffering future messages | 10 |
+| Syntax                    | Type   | Description                                                            | Default |
+| ------------------------- | ------ | ---------------------------------------------------------------------- | ------- |
+| blockPeriod               | number | block time in seconds                                                  | 15      |
+| epochLength               | number | number of blocks after which to reset all votes                        | 1000    |
+| validators                | array  | array of ethereum addresses                                            |
+| requestTimeout            | number | timeout for each consensus round in seconds                            | 10      |
+| messageQueueLimit         | number | message queue limit                                                    | 1000    |
+| duplicateMessageLimit     | number | duplicate messages limit                                               | 100     |
+| futureMessagesLimit       | number | future messages buffer limit                                           | 1000    |
+| futureMessagesMaxDistance | number | maximum height from current chain height for buffering future messages | 10      |

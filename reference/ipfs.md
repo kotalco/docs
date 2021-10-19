@@ -74,14 +74,14 @@ kubectl create secret generic swarm-key --from-literal=secret=$w@rmk3y
 
 `resources` object has the following fields:
 
-| Syntax      | Type   | Description                                 | Defalt |
-| ----------- | ------ | ------------------------------------------- | ------ |
-| cpu         | string | number of cpu cores this peer requires      | `1`    |
-| cpuLimit    | string | number of cpu cores this peer is limited to | `2`    |
-| memory      | string | memory this peer requires                   | `2Gi`  |
-| memoryLimit | string | memory this peer is limited to              | `4Gi`  |
-| storage     | string | disk space this peer requires               | `10Gi` |
-| storageClass | string | Node volume storage class                  | Cluster's default storage class will be used as defined by cluster admin or cloud provider  |
+| Syntax       | Type   | Description                                 | Defalt                                                                                     |
+| ------------ | ------ | ------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| cpu          | string | number of cpu cores this peer requires      | `1`                                                                                        |
+| cpuLimit     | string | number of cpu cores this peer is limited to | `2`                                                                                        |
+| memory       | string | memory this peer requires                   | `2Gi`                                                                                      |
+| memoryLimit  | string | memory this peer is limited to              | `4Gi`                                                                                      |
+| storage      | string | disk space this peer requires               | `10Gi`                                                                                     |
+| storageClass | string | Node volume storage class                   | Cluster's default storage class will be used as defined by cluster admin or cloud provider |
 
 Memory and storage requests and limits must use the pattern `^[1-9][0-9]*[KMGTPE]i$` for example `1500Mi`, `30Gi`, and `1Ti`.
 

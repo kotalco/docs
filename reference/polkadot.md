@@ -131,6 +131,6 @@ cpu requests and limits must use the pattern `^[1-9][0-9]*m?$` for example `1000
 
 `cpuLimit` can't be less than `cpu`.
 
-`memoryLimit` can't be less than `memory`.
+`memoryLimit` can't be less than or equal to `memory`.
 
 `storageClass` field is immutable, it cannot be changed after creation.
