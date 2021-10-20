@@ -1,19 +1,76 @@
+## Node
+
 {% hint style="info" %}
 Kotal uses only `lotus` client for Filecoin nodes, that's why there's no `.spec.client` option.
 {% endhint %}
 
-| Syntax                  | Type   | Description                                    | Default |
-| ----------------------- | ------ | ---------------------------------------------- | ------- |
-| [network](#network)     | string | network to join and sync                       |         |
-| [resources](#resources) | object | node compute and storage resources to alloacte |         |
+| Syntax                                    | Type    | Description                                    | Default |
+| ----------------------------------------- | ------- | ---------------------------------------------- | ------- |
+| [network](#network)                       | string  | network to join and sync                       |         |
+| [api](#api)                               | boolean | enables API server                             | false   |
+| [apiPort](#apiport)                       | number  | API server listening port                      | 1234    |
+| [apiHost](#apihost)                       | string  | API server host                                | 0.0.0.0 |
+| [apiRequestTimeout](#apirequesttimeout)   | number  | API request timeout in seconds                 | 30      |
+| [disableMetadataLog](#disablemetadataLog) | boolean | disables metadata logging                      | false   |
+| [p2pPort](#p2pport)                       | string  | p2p port                                       | 4444    |
+| [p2pHost](#p2phost)                       | string  | p2p host                                       | 0.0.0.0 |
+| [ipfsPeerEndpoint](#ipfspeerendpoint)     | string  | ipfs peer endpoint                             |         |
+| [ipfsOnlineMode](#ipfsonlinemode)         | boolean | ipfs online mode                               | false   |
+| [ipfsForRetrieval](#ipfsforretrieval)     | boolean | use ipfs for retrieval                         | false   |
+| [resources](#resources)                   | object  | node compute and storage resources to alloacte |         |
 
-## network
+### network
 
 `network` is the network this node should join and sync its blockchain data.
 
-`network` possible values are `mainnet`, `nerpa`, or `calibration`.
+`network` possible values are `mainnet`, and `calibration`.
 
-## resources
+{% hint style="warning" %}
+`butterfly` and `nerpa` networks have been deprecated 🥺
+{% endhint %}
+
+### api
+
+`api` enables API server.
+
+### apiPort
+
+`apiPort` is API server listening port.
+
+### apiHost
+
+`apiHost` is API server host.
+
+### apiRequestTimeout
+
+`apiRequestTimeout` is API request timeout in seconds.
+
+### disableMetadataLog
+
+`disableMetadataLog` disables metadata logging.
+
+### p2pPort
+
+`p2pPort` is p2p port.
+
+### p2pHost
+
+`p2pHost` is p2p host.
+
+### ipfsPeerEndpoint
+
+`ipfsPeerEndpoint` ipfs peer endpoint.
+
+
+### ipfsOnlineMode
+
+`ipfsOnlineMode` sets sets ipfs online mode.
+
+### ipfsForRetrieval
+
+`ipfsForRetrieval` uses ipfs for retrieval.
+
+### resources
 
 `resources` allocates compute and storage resources to the node.
 
