@@ -11,7 +11,7 @@ Kotal uses only `lotus` client for Filecoin nodes, that's why there's no `.spec.
 | [apiPort](#apiport)                       | number  | API server listening port                      | 1234    |
 | [apiHost](#apihost)                       | string  | API server host                                | 0.0.0.0 |
 | [apiRequestTimeout](#apirequesttimeout)   | number  | API request timeout in seconds                 | 30      |
-| [disableMetadataLog](#disablemetadataLog) | boolean | disables metadata logging                      | false   |
+| [disableMetadataLog](#disablemetadatalog) | boolean | disables metadata logging                      | false   |
 | [p2pPort](#p2pport)                       | string  | p2p port                                       | 4444    |
 | [p2pHost](#p2phost)                       | string  | p2p host                                       | 0.0.0.0 |
 | [ipfsPeerEndpoint](#ipfspeerendpoint)     | string  | ipfs peer endpoint                             |         |
