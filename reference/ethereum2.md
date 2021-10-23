@@ -1,21 +1,23 @@
 ## BeaconNode
 
-| Syntax                          | Type   | Description                        | Default |
-| ------------------------------- | ------ | ---------------------------------- | ------- |
-| [network](#network)             | string | Network to join                    |         |
-| [client](#client)               | string | Ethereum 2.0 client to use         |         |
-| [eth1Endpoints](#eth1endpoints) | array  | Ethereum 1 JSON RPC endpoints      |         |
-| [rest](#rest)                   | bool   | Enable REST API server             | false   |
-| [restHost](#resthost)           | string | REST API server host               | 0.0.0.0 |
-| [restPort](#restport)           | number | REST API server port               | 5051    |
-| [rpc](#rpc)                     | bool   | Enables JSON RPC server            | false   |
-| [rpcHost](#rpchost)             | string | JSON RPC server host               | 0.0.0.0 |
-| [rpcPort](#rpcport)             | number | JSON RPC server port               | 4000    |
-| [grpc](#grpc)                   | bool   | GRPC gateway server                | false   |
-| [grpcHost](#grpchost)           | string | GRPC gateway server host           | 0.0.0.0 |
-| [grpcPort](#grpcport)           | number | GRPC gateway server port           | 3500    |
-| [p2pPort](#p2pport)             | number | p2p and discovery port             | 9000    |
-| [resources](#resources)         | object | Node compute and storage resources |         |
+| Syntax                          | Type   | Description                                        | Default |
+| ------------------------------- | ------ | -------------------------------------------------- | ------- |
+| [network](#network)             | string | Network to join                                    |         |
+| [client](#client)               | string | Ethereum 2.0 client to use                         |         |
+| [eth1Endpoints](#eth1endpoints) | array  | Ethereum 1 JSON RPC endpoints                      |         |
+| [hosts](#hosts)                 | array  | hostnames to whitelist for RPC access              | *       |
+| [corsDomains](#corsdomains)     | array  | domains from which to accept cross origin requests | *       |
+| [rest](#rest)                   | bool   | Enable REST API server                             | false   |
+| [restHost](#resthost)           | string | REST API server host                               | 0.0.0.0 |
+| [restPort](#restport)           | number | REST API server port                               | 5051    |
+| [rpc](#rpc)                     | bool   | Enables JSON RPC server                            | false   |
+| [rpcHost](#rpchost)             | string | JSON RPC server host                               | 0.0.0.0 |
+| [rpcPort](#rpcport)             | number | JSON RPC server port                               | 4000    |
+| [grpc](#grpc)                   | bool   | GRPC gateway server                                | false   |
+| [grpcHost](#grpchost)           | string | GRPC gateway server host                           | 0.0.0.0 |
+| [grpcPort](#grpcport)           | number | GRPC gateway server port                           | 3500    |
+| [p2pPort](#p2pport)             | number | p2p and discovery port                             | 9000    |
+| [resources](#resources)         | object | Node compute and storage resources                 |         |
 
 ### network
 
@@ -36,6 +38,15 @@
 
 `nimbus` client supports only 1 endpoint in `eth1Endpoints`.
 {% endhint %}
+
+### hosts
+
+`hosts` is a list of host names to whitelist for RPC access (server enforced).
+
+
+### corsDomains
+
+`corsDomains` is a list of domains from which to accept cross-origin requests (browser enforced).
 
 ### rest
 
