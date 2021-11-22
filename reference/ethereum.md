@@ -59,9 +59,13 @@ Ethereum clients have hardcoded bootnodes for public main and test networks. `bo
 
 ### client
 
+{% hint style="warning" %}
+Support for OpenEthereum (parity) client has been deprecated. OpenEthereum team is working with Erigon on a smooth transition path for users. More information can be found [here](https://medium.com/openethereum/gnosis-joins-erigon-formerly-turbo-geth-to-release-next-gen-ethereum-client-c6708dd06dd)
+{% endhint %}
+
 `client` is the Ethereum client name powering the node.
 
-`client` possible values are `besu`, `geth`, `nethermind`, or `parity`.
+`client` possible values are `besu`, `geth`, `nethermind`.
 
 Only `besu` client can be used if network consensus is `ibft2`.
 
@@ -104,13 +108,13 @@ The default value `8547` will be used if the graphQL server is enabled `graphql:
 
 ### import
 
-`import` is the ethereum account to import. Only for nodes running with `geth`, `nethermind`, or `parity` clients.
+`import` is the ethereum account to import. Only for nodes running with `geth` or `nethermind`.
 
 During account creation, it will be encrypted with the password, and during import it will be unlocked using the same password.
 
 Nodes that import accounts can't enable HTTP RPC server, web socket server, or GraphQL server to prevent funds drainage if exposed to the internet.
 
-Account must be imported if the node is running with `geth`, `nethermind`, or `parity` clients wants to be a signer or miner.
+Account must be imported if the node is running with `geth` or `nethermind` clients wants to be a signer or miner.
 
 | Syntax               | Type   | Description                                                                                               |
 | -------------------- | ------ | --------------------------------------------------------------------------------------------------------- |

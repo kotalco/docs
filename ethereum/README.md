@@ -30,7 +30,7 @@ For a comprehensive reference on Ethereum `Node`, check our [ethereum reference]
 ## Multi-client Support
 
 {% hint style="warning" %}
-OpenEthereum client will be deprecated after the London upgrade. The team is working with Erigon on a smooth transition path for users. More information can be found [here](https://medium.com/openethereum/gnosis-joins-erigon-formerly-turbo-geth-to-release-next-gen-ethereum-client-c6708dd06dd)
+Support for OpenEthereum (parity) client has been deprecated. OpenEthereum team is working with Erigon on a smooth transition path for users. More information can be found [here](https://medium.com/openethereum/gnosis-joins-erigon-formerly-turbo-geth-to-release-next-gen-ethereum-client-c6708dd06dd)
 {% endhint %}
 
 Kotal supports the following Ethereum 1 clients:
@@ -38,6 +38,5 @@ Kotal supports the following Ethereum 1 clients:
 * [Hyperledger Besu](https://besu.hyperledger.org)
 * [Go-Ethereum (Geth)](https://geth.ethereum.org)
 * [Nethermind](https://nethermind.io)
-* [Parity (OpenEthereum)](https://www.parity.io/ethereum/).
 
 
