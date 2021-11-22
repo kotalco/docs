@@ -28,3 +28,17 @@ You can use a hosted database a service to obtain PostgreSQL database:
 * [Google Cloud](https://cloud.google.com/community/tutorials/setting-up-postgres)
 
 You can also deploy your own PostgreSQL database instance from official PostgreSQL [docker image](https://hub.docker.com/_/postgres).
+
+### Keystore and API Password
+
+Chainlink node requires a strong **password** for securing access to keystore (wallet) and API. We will store this password in Kubernetes secret `my-password`:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-password
+stringData:
+  password: fE2xXKDnR3ns489X
+```
+
