@@ -17,6 +17,9 @@
     * [Deploy Beacon Node](ethereum2/beacon.md)
     * [Deploy Validator Client](ethereum2/validator.md)
 
+* [🔗 Chainlink](chainlink/README.md)
+    * [Deploy Chainlink Node](chainlink/node.md)
+
 * [🔴 Polkadot](polkadot/README.md)
     * [Deploy Polkadot Node](polkadot/node.md)
     * [Deploy Kusama Validator](polkadot/validator.md)
