@@ -144,3 +144,27 @@ Get the logs of the running node:
 ```bash
 kubectl logs -f chainlink-node-0
 ```
+
+## Open Chainlink User Interface
+
+Chainlink node comes with a user interface for managing the node, and it's being served by default on port `6688`.
+
+Forward localhost:6688 calls to the node pod:
+
+```bash
+kubectl port-forward chainlink-node-0 6688
+```
+
+Open https://localhost:6688 and it will take you to Chainlink node UI. It will ask you for API credentials. Enter the email address in your node's `.spec.apiCredentials.email`, and in the password field, enter `fE2xXKDnR3ns489X`.
+
+🔥🔥🔥
+
+Finally you can delete the node by:
+
+```bash
+kubectl delete -f chainlink.yaml
+
+node.chainlink.kotal.io "chainlink-node" deleted
+```
+
+Kubernetes garbage collector will delete all the resources that has been created by Kotal Chainlink `Node` controller.
