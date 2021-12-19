@@ -74,6 +74,7 @@ spec:
 
 With access to Ethereum Rinkeby node, PostgreSQL database, tls certificate and a strong password. We're ready to deploy our Chainlink node to create jobs and satisfy requests:
 
+{% code title="chainlink.yaml" %}
 ```yaml
 apiVersion: chainlink.kotal.io/v1alpha1
 kind: Node
@@ -90,6 +91,56 @@ spec:
     email: "mostafa@kotal.co"
     passwordSecretName: "my-password"
 ```
+{% endcode %}
 
 In this manifest, we're describing Chainlink node that connects to Ethereum Rinkeby node using `ethereumWsEndpoint`, setting ethereum chain ID using `ethereumChainId`, setting link contract address using `linkContractAddress`, connecting to postgress database instance using `databaseURL`, setting wallet password using `keystorePasswordSecretName` which accepts a name of k8s secret, setting tls configuration using `certSecretName` which accepts k8s secret name that holds `tls.key` and `tls.crt`, and finally setting API credentials using `apiCredentials`.
 
+
+Apply `chainlink.yaml` manifest:
+
+```bash
+kubectl apply -f chainlink.yaml
+```
+
+Kotal operator will notice your `chainlink-node` and will create all the necessary pods, persistent volumes, services, configmaps, and secrets neccessary.
+
+You can fetch the deployed Chainlink `Node` using:
+
+```bash
+kubectl get nodes.chainlink
+```
+
+It will return an output similar to the following:
+
+```bash
+NAME             CLIENT      EthereumChainId
+chainlink-node   chainlink   4
+```
+
+If you added `-o wide` it will return more info like link contract address
+
+```bash
+NAME             CLIENT      EthereumChainId   LinkContractAddress
+chainlink-node   chainlink   4                 0x01BE23585060835E02B77ef475b0Cc51aA1e0709
+```
+
+## Fetch Node Logs
+
+Get the pods that has been created by Kotal for the node:
+
+```bash
+kubectl get pods
+```
+
+It will return an output similar to the following:
+
+```bash
+NAME                  READY   STATUS    RESTARTS   AGE
+chainlink-node-0      1/1     Running   0          1m
+```
+
+Get the logs of the running node:
+
+```bash
+kubectl logs -f chainlink-node-0
+```
