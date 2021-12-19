@@ -83,11 +83,13 @@ spec:
   ethereumChainId: 4
   ethereumWsEndpoint: "ws://besu-rinkeby-node:8546"
   linkContractAddress: "0x01BE23585060835E02B77ef475b0Cc51aA1e0709"
-  databaseURL: "postgresql://postgres:fE2xXKDnR3ns489X@postgres:5432/postgres?sslmode=disable"
+  databaseURL: "postgresql://username:password@server:port/name"
   keystorePasswordSecretName: "my-password"
   certSecretName: "chainlink-node-cert"
   apiCredentials:
     email: "mostafa@kotal.co"
     passwordSecretName: "my-password"
 ```
+
+In this manifest, we're describing Chainlink node that connects to Ethereum Rinkeby node using `ethereumWsEndpoint`, setting ethereum chain ID using `ethereumChainId`, setting link contract address using `linkContractAddress`, connecting to postgress database instance using `databaseURL`, setting wallet password using `keystorePasswordSecretName` which accepts a name of k8s secret, setting tls configuration using `certSecretName` which accepts k8s secret name that holds `tls.key` and `tls.crt`, and finally setting API credentials using `apiCredentials`.
 
