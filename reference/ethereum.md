@@ -217,7 +217,7 @@ Nethermind client [removed support for beam sync](https://github.com/NethermindE
 
 `syncMode` possible values are `light`, `full`, `snap` or `fast`.
 
-`light` sync mode is only supported bu go-ethereum client.
+`light` sync mode is only supported by go-ethereum client.
 
 ### ws
 
