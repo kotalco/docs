@@ -1,23 +1,24 @@
 ## BeaconNode
 
-| Syntax                          | Type   | Description                                        | Default |
-| ------------------------------- | ------ | -------------------------------------------------- | ------- |
-| [network](#network)             | string | Network to join                                    |         |
-| [client](#client)               | string | Ethereum 2.0 client to use                         |         |
-| [eth1Endpoints](#eth1endpoints) | array  | Ethereum 1 JSON RPC endpoints                      |         |
-| [hosts](#hosts)                 | array  | hostnames to whitelist for RPC access              | *       |
-| [corsDomains](#corsdomains)     | array  | domains from which to accept cross origin requests | *       |
-| [rest](#rest)                   | bool   | Enable REST API server                             | false   |
-| [restHost](#resthost)           | string | REST API server host                               | 0.0.0.0 |
-| [restPort](#restport)           | number | REST API server port                               | 5051    |
-| [rpc](#rpc)                     | bool   | Enables JSON RPC server                            | false   |
-| [rpcHost](#rpchost)             | string | JSON RPC server host                               | 0.0.0.0 |
-| [rpcPort](#rpcport)             | number | JSON RPC server port                               | 4000    |
-| [grpc](#grpc)                   | bool   | GRPC gateway server                                | false   |
-| [grpcHost](#grpchost)           | string | GRPC gateway server host                           | 0.0.0.0 |
-| [grpcPort](#grpcport)           | number | GRPC gateway server port                           | 3500    |
-| [p2pPort](#p2pport)             | number | p2p and discovery port                             | 9000    |
-| [resources](#resources)         | object | Node compute and storage resources                 |         |
+| Syntax                            | Type   | Description                                        | Default |
+| --------------------------------- | ------ | -------------------------------------------------- | ------- |
+| [network](#network)               | string | Network to join                                    |         |
+| [client](#client)                 | string | Ethereum 2.0 client to use                         |         |
+| [eth1Endpoints](#eth1endpoints)   | array  | Ethereum 1 JSON RPC endpoints                      |         |
+| [hosts](#hosts)                   | array  | hostnames to whitelist for RPC access              | *       |
+| [corsDomains](#corsdomains)       | array  | domains from which to accept cross origin requests | *       |
+| [rest](#rest)                     | bool   | Enable REST API server                             | false   |
+| [restHost](#resthost)             | string | REST API server host                               | 0.0.0.0 |
+| [restPort](#restport)             | number | REST API server port                               | 5051    |
+| [rpc](#rpc)                       | bool   | Enables JSON RPC server                            | false   |
+| [rpcHost](#rpchost)               | string | JSON RPC server host                               | 0.0.0.0 |
+| [rpcPort](#rpcport)               | number | JSON RPC server port                               | 4000    |
+| [grpc](#grpc)                     | bool   | GRPC gateway server                                | false   |
+| [grpcHost](#grpchost)             | string | GRPC gateway server host                           | 0.0.0.0 |
+| [grpcPort](#grpcport)             | number | GRPC gateway server port                           | 3500    |
+| [p2pPort](#p2pport)               | number | p2p and discovery port                             | 9000    |
+| [certSecretName](#certsecretname) | string | k8s secret name that holds tls.key and tls.crt     |         |
+| [resources](#resources)           | object | Node compute and storage resources                 |         |
 
 ### network
 
@@ -101,6 +102,12 @@ GRPC gateway is only supported by `prysm` client.
 
 `p2pPort` is the p2p and discovery port.
 
+### certSecretName
+
+`certSecretName` is k8s secret name that holds TLS private key in data field called `tls.key` and TLS certificate in data field called `tls.crt`.
+
+`certSecretName` is supported only by `prysm` client.
+
 ### resources
 
 `resources` allocates compute and storage resources to the node.
@@ -133,6 +140,7 @@ cpu requests and limits must use the pattern `^[1-9][0-9]*m?$` for example `1000
 | [network](#network)                                   | string | Network to validate blocks for          |                  |
 | [client](#client)                                     | string | Ethereum 2.0 client to use              |                  |
 | [beaconEndpoints](#beaconendpoints)                   | array  | List of beacon node endpoints           |                  |
+| [certSecretName](#certsecretname)                     | string | k8s secret name that holds tls.crt      |                  |
 | [graffiti](#graffiti)                                 | string | Text to include in proposed blocks      | Powered by Kotal |
 | [walletPasswordSecretName](#walletpasswordsecretname) | string | Wallet password kubernetes secret       |                  |
 | [keystores](#keystores)                               | array  | Validator keystores                     |                  |
@@ -153,6 +161,12 @@ cpu requests and limits must use the pattern `^[1-9][0-9]*m?$` for example `1000
 {% hint style="info" %}
 `lighthouse` is the only client that supports multiple endpoints. All other clients supports only a single endpoint.
 {% endhint %}
+
+### certSecretName
+
+`certSecretName` is k8s secret name that holds TLS certificate in data field called `tls.crt`.
+
+`certSecretName` is supported only by `prysm` client.
 
 ### graffiti
 
