@@ -209,13 +209,15 @@ Static nodes are exempt from maximum peer and remote connection limits. Ethereum
 
 ### syncMode
 
+{% hint style="warning" %}
+Nethermind client [removed support for beam sync](https://github.com/NethermindEth/nethermind/commit/0f8c927bb039c99c554b5dea5eaaac1e7d13abf3) which was activated by `syncMode: light`.
+{% endhint %}
+
 `syncMode` is Blockchain synchronization mode.
 
-`syncMode` possible values are `light`, `full` or `fast`.
+`syncMode` possible values are `light`, `full`, `snap` or `fast`.
 
-In Nethermind client, `light` sync will enable beam sync.
-
-Nodes that run with `client: besu` doesn't support `light` sync mode.
+`light` sync mode is only supported bu go-ethereum client.
 
 ### ws
 
