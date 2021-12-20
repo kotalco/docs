@@ -89,9 +89,8 @@ Default value `*` will be used if HTTP RPC server is enabled `rpc: true` or web 
 
 {% hint style="warning" %}
 
-* Parity (OpenEthereum) client doesn't support GraphQL.
 * Nethermind client doesn't support GraphQL.
-* Geth (Go-Ethereum) GraphQL server can be used only if RPC is enabled as of geth [v1.9.19 release](https://github.com/ethereum/go-ethereum/releases/tag/v1.9.19)
+* Geth (Go-Ethereum) GraphQL server can be used only if RPC is enabled as of geth [v1.9.19 release notes](https://github.com/ethereum/go-ethereum/releases/tag/v1.9.19)
 
 {% endhint %}
 
@@ -129,24 +128,20 @@ Account must be imported if the node is running with `geth` or `nethermind` clie
 
 Different clients support different logging vrbosity levels as shown in the following table:
 
-| Logging/Client | Hyperledger Besu | Go Ethereum | Parity (OpenEthereum) | Nethermind |
-| -------------- | ---------------- | ----------- | --------------------- | ---------- |
-| `off`          | ✔️                | ✔️           | ❌                     | ❌          |
-| `fatal`        | ✔️                | ❌           | ❌                     | ❌          |
-| `error`        | ✔️                | ✔️           | ✔️                     | ✔️          |
-| `warn`         | ✔️                | ✔️           | ✔️                     | ✔️          |
-| `debug`        | ✔️                | ✔️           | ✔️                     | ✔️          |
-| `info`         | ✔️                | ✔️           | ✔️                     | ✔️          |
-| `trace`        | ✔️                | ❌           | ✔️                     | ✔️          |
-| `all`          | ✔️                | ✔️           | ❌                     | ❌          |
+| Logging/Client | Hyperledger Besu | Go Ethereum | Nethermind |
+| -------------- | ---------------- | ----------- | ---------- |
+| `off`          | ✔️                | ✔️           | ❌          |
+| `fatal`        | ✔️                | ❌           | ❌          |
+| `error`        | ✔️                | ✔️           | ✔️          |
+| `warn`         | ✔️                | ✔️           | ✔️          |
+| `debug`        | ✔️                | ✔️           | ✔️          |
+| `info`         | ✔️                | ✔️           | ✔️          |
+| `trace`        | ✔️                | ❌           | ✔️          |
+| `all`          | ✔️                | ✔️           | ❌          |
 
 ### miner
 
 `miner` enables node mining or signing blocks.
-
-{% hint style="warning" %}
-Parity (OpenEthereum) client doesn't support PoW mining.
-{% endhint %}
 
 ### nodePrivateKeySecretName
 
@@ -332,10 +327,6 @@ Genesis block configuration `genesis` is required in private networks.
 if `forks` is missing, all forks will be activated at block 0 (genesis block) except DAO.
 
 Later forks like `muirglacier` can't be activated before earlier forks like `homestead`. They must be ordered as in the following table:
-
-{% hint style="info" %}
-Note that `homestead` fork will be ignored in PoA Clique consensus network by Parity (OpenEthereum) client.
-{% endhint %}
 
 | Syntax         | Type   | Description                                                                                                                                    |
 | -------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
