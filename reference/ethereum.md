@@ -328,20 +328,21 @@ if `forks` is missing, all forks will be activated at block 0 (genesis block) ex
 
 Later forks like `muirglacier` can't be activated before earlier forks like `homestead`. They must be ordered as in the following table:
 
-| Syntax         | Type   | Description                                                                                                                                    |
-| -------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| homestead      | number | [Homestead](https://blog.ethereum.org/2016/02/29/homestead-release/) fork activation block number                                              |
-| dao            | number | [DAO](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-779.md) fork activation block number                                               |
-| eip150         | number | [eip150](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-150.md) fork activation block number                                            |
-| eip155         | number | [eip155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md) fork activation block number                                            |
-| eip158         | number | [eip158](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-158.md) fork activation block number                                            |
-| byzantium      | number | [Byzantium](https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement/) fork activation block number                                      |
-| constantinople | number | [Constantipole](https://blog.ethereum.org/2019/02/22/ethereum-constantinople-st-petersburg-upgrade-announcement/) fork activation block number |
-| petersburg     | number | [Petersburg](https://blog.ethereum.org/2019/02/22/ethereum-constantinople-st-petersburg-upgrade-announcement/) fork activation block number    |
-| istanbul       | number | [Istanbul](https://eips.ethereum.org/EIPS/eip-1679) fork activation block number                                                               |
-| muirglacier    | number | [Muir Glacier](https://eips.ethereum.org/EIPS/eip-2387) fork activation block number                                                           |
-| berlin         | number | [Berlin](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/berlin.md) fork activation block number     |
-| london         | number | [London](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/london.md) fork activation block number     |
+| Syntax         | Type   | Description                                                                                                                                              |
+| -------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| homestead      | number | [Homestead](https://blog.ethereum.org/2016/02/29/homestead-release/) fork activation block number                                                        |
+| dao            | number | [DAO](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-779.md) fork activation block number                                                         |
+| eip150         | number | [eip150](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-150.md) fork activation block number                                                      |
+| eip155         | number | [eip155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md) fork activation block number                                                      |
+| eip158         | number | [eip158](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-158.md) fork activation block number                                                      |
+| byzantium      | number | [Byzantium](https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement/) fork activation block number                                                |
+| constantinople | number | [Constantipole](https://blog.ethereum.org/2019/02/22/ethereum-constantinople-st-petersburg-upgrade-announcement/) fork activation block number           |
+| petersburg     | number | [Petersburg](https://blog.ethereum.org/2019/02/22/ethereum-constantinople-st-petersburg-upgrade-announcement/) fork activation block number              |
+| istanbul       | number | [Istanbul](https://eips.ethereum.org/EIPS/eip-1679) fork activation block number                                                                         |
+| muirglacier    | number | [Muir Glacier](https://eips.ethereum.org/EIPS/eip-2387) fork activation block number                                                                     |
+| berlin         | number | [Berlin](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/berlin.md) fork activation block number               |
+| london         | number | [London](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/london.md) fork activation block number               |
+| arrowGlacier   | number | [Arrow Glacier](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/arrow-glacier.md) fork activation block number |
 
 ### accounts
 
