@@ -18,6 +18,7 @@
 | [grpcPort](#grpcport)             | number | GRPC gateway server port                           | 3500    |
 | [p2pPort](#p2pport)               | number | p2p and discovery port                             | 9000    |
 | [certSecretName](#certsecretname) | string | k8s secret name that holds tls.key and tls.crt     |         |
+| [logging](#logging)               | string | logging verbosity level                            | info    |
 | [resources](#resources)           | object | Node compute and storage resources                 |         |
 
 ### network
@@ -108,6 +109,29 @@ GRPC gateway is only supported by `prysm` client.
 
 `certSecretName` is supported only by `prysm` client.
 
+### logging
+
+`logging` is logging verbosity level.
+
+Different levels are supported by different Ethereum 2.0 beacon node clients.
+
+
+| Logging/Client | Teku | Lighthouse | Prysm | Nimbus |
+| -------------- | ---- | ---------- | ----- | ------ |
+| `off`          | ✔️    | ❌          | ❌     | ❌      |
+| `fatal`        | ✔️    | ❌          | ✔️     | ✔️      |
+| `none`         | ❌    | ❌          | ❌     | ✔️      |
+| `notice`       | ❌    | ❌          | ❌     | ✔️      |
+| `error`        | ✔️    | ✔️          | ✔️     | ✔️      |
+| `warn`         | ✔️    | ✔️          | ✔️     | ✔️      |
+| `info`         | ✔️    | ✔️          | ✔️     | ✔️      |
+| `debug`        | ✔️    | ✔️          | ✔️     | ✔️      |
+| `trace`        | ✔️    | ❌          | ✔️     | ✔️      |
+| `all`          | ✔️    | ❌          | ❌     | ❌      |
+| `critical`     | ❌    | ✔️          | ❌     | ❌      |
+| `panic`        | ❌    | ❌          | ✔️     | ❌      |
+
+
 ### resources
 
 `resources` allocates compute and storage resources to the node.
@@ -144,6 +168,7 @@ cpu requests and limits must use the pattern `^[1-9][0-9]*m?$` for example `1000
 | [graffiti](#graffiti)                                 | string | Text to include in proposed blocks      | Powered by Kotal |
 | [walletPasswordSecretName](#walletpasswordsecretname) | string | Wallet password kubernetes secret       |                  |
 | [keystores](#keystores)                               | array  | Validator keystores                     |                  |
+| [logging](#logging)                                   | string | logging verbosity level                 | info             |
 | [resources](#resources)                               | object | Validator compute and storage resources |                  |
 
 ### network
@@ -219,6 +244,34 @@ kubectl create secret my-validator --from-file=keystore=/path/to/keystore.json -
 ```
 
 {% endhint %}
+
+
+### logging
+
+`logging` is logging verbosity level.
+
+Different levels are supported by different Ethereum 2.0 beacon node clients.
+
+{% hint style="warning" %}
+**Teku** validator client doesn't support logging. Verbosity level will be ignored 🙈
+{% endhint %}
+
+| Logging/Client | Lighthouse | Prysm | Nimbus |
+| -------------- | ---------- | ----- | ------ |
+| `off`          | ❌          | ❌     | ❌      |
+| `fatal`        | ❌          | ✔️     | ✔️      |
+| `none`         | ❌          | ❌     | ✔️      |
+| `notice`       | ❌          | ❌     | ✔️      |
+| `error`        | ✔️          | ✔️     | ✔️      |
+| `warn`         | ✔️          | ✔️     | ✔️      |
+| `info`         | ✔️          | ✔️     | ✔️      |
+| `debug`        | ✔️          | ✔️     | ✔️      |
+| `trace`        | ❌          | ✔️     | ✔️      |
+| `all`          | ❌          | ❌     | ❌      |
+| `critical`     | ✔️          | ❌     | ❌      |
+| `panic`        | ❌          | ✔️     | ❌      |
+
+
 
 ### resources
 
