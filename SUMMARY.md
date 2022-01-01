@@ -20,7 +20,7 @@
 * [🔗 Chainlink](chainlink/README.md)
     * [Deploy Chainlink Node](chainlink/node.md)
 
-* [🔴 Polkadot](polkadot/README.md)
+* [🔅 Polkadot](polkadot/README.md)
     * [Deploy Polkadot Node](polkadot/node.md)
     * [Deploy Kusama Validator](polkadot/validator.md)
 
