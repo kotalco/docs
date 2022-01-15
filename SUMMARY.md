@@ -20,6 +20,10 @@
 * [🔗 Chainlink](chainlink/README.md)
     * [Deploy Chainlink Node](chainlink/node.md)
 
+* [♾️ NEAR](near/README.md)
+    * [Deploy RPC Node](near/rpc.md)
+    * [Deploy Validator Node](near/validator.md)
+
 * [🔅 Polkadot](polkadot/README.md)
     * [Deploy Polkadot Node](polkadot/node.md)
     * [Deploy Kusama Validator](polkadot/validator.md)
@@ -36,6 +40,7 @@
 * [Ethereum](reference/ethereum.md)
 * [Ethereum 2.0](reference/ethereum2.md)
 * [Chainlink](reference/chainlink.md)
+* [NEAR](reference/near.md)
 * [Polkadot](reference/polkadot.md)
 * [IPFS](reference/ipfs.md)
 * [Filecoin](reference/filecoin.md)
