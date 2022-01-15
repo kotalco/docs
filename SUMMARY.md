@@ -20,7 +20,7 @@
 * [🔗 Chainlink](chainlink/README.md)
     * [Deploy Chainlink Node](chainlink/node.md)
 
-* [♾️ NEAR](near/README.md)
+* [∞ NEAR](near/README.md)
     * [Deploy RPC Node](near/rpc.md)
     * [Deploy Validator Node](near/validator.md)
 
