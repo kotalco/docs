@@ -21,8 +21,8 @@
     * [Deploy Chainlink Node](chainlink/node.md)
 
 * [🌈 NEAR](near/README.md)
-    * [Deploy RPC Node](near/rpc.md)
-    * [Deploy Validator Node](near/validator.md)
+    * [Deploy NEAR RPC Node](near/rpc.md)
+    * [Deploy NEAR Validator Node](near/validator.md)
 
 * [🔅 Polkadot](polkadot/README.md)
     * [Deploy Polkadot Node](polkadot/node.md)

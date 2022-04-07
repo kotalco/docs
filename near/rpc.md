@@ -1,4 +1,4 @@
-## Deploy NEAR RPC Node
+## Deploy RPC Node
 
 The following manifest describes a NEAR node that syncs NEAR mainnet `network: mainnet`, enables HTTP JSON-RPC server `rpc: true` and uses [NEAR Core](https://github.com/near/nearcore) client:
 
@@ -71,7 +71,7 @@ Apr 07 12:19:13.790  INFO stats: # 9820210 Downloading headers 0.00% (53203933) 
 
 ## Call JSON-RPC Method
 
-By default, NEAR node JSON-RPC server port is `3030`, which cane be changed using `rpcPort`.
+By default, NEAR node JSON-RPC server port is `3030`, which can be changed using `rpcPort`.
 
 Forward localhost:3030 calls to the node pod:
 
@@ -79,7 +79,7 @@ Forward localhost:3030 calls to the node pod:
 kubectl port-forward near-node-0 3030
 ```
 
-In another terminal window call `status` JSON-RPC method to get the general status of a given node (sync status, nearcore node version, protocol version) and the current set of validators:
+In another terminal window call `status` JSON-RPC method to get the general status of our node (sync status, nearcore node version, protocol version) and the current set of validators:
 
 ```bash
 curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "status"}' 0.0.0.0:3030
