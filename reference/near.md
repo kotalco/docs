@@ -20,28 +20,63 @@
 
 ### network
 
+`network` is NEAR network to join and sync. Possible values are `mainnet`, `testnet`, and `betanet`.
+
+`network` is immutable, it can't be changed after node is created.
+
 ### nodePrivateKeySecretName
+
+`nodePrivateKeySecretName` is Kubernetes secret name holding node Ed25519 private key in data field `key`, from which node public key is generated, and p2p messages are signed.
 
 ### validatorSecretName
 
+`validatorSecretName` is Kubernetes secret name holding node Ed25519 validator key in data field `key`.
+
 ### minPeers
+
+`minPeers` is the minimum number of peers to start syncing/producing blocks.
 
 ### archive
 
+`archive` keeps old blocks in the storage.
+
 ### p2pPort
+
+`p2pPort` is p2p protocol tcp port.
 
 ### p2pHost
 
+`p2pHost` is p2p host address.
+
+### rpc
+
+`rpc` enables JSON-RPC server.
+
+### rpcPort
+
+`rpcPort` is JSON-RPC server listening port.
+
+### rpcHost
+
+`rpcHost` is JSON-RPC server listening host address.
+
 ### prometheusPort
+
+`prometheusPort` is Prometheus exporter port.
 
 ### prometheusHost
 
+`prometheusHost` is Prometheus exporter host address.
+
 ### telemetryURL
+
+`telemetryURL` is Telemetry service URL.
 
 ### bootnodes
 
-### resources
+`bootnodes` is a list of boot nodes to bootstrap network from
 
+### resources
 
 `resources` allocates compute and storage resources to the node.
 
