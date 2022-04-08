@@ -7,6 +7,9 @@
 
 ## Tutorials
 
+* [💸 Bitcoin](bitcoin/README.md)
+  * [Deploy Bitcoin RPC Node](bitcoin/rpc.md)
+
 * [💎 Ethereum](ethereum/README.md)
     * [Deploy Public Rinkeby Node](ethereum/public.md)
     * [Deploy Private Clique Network](ethereum/clique.md)
@@ -37,6 +40,7 @@
 
 ## Reference
 
+* [Bitcoin](reference/bitcoin.md)
 * [Ethereum](reference/ethereum.md)
 * [Ethereum 2.0](reference/ethereum2.md)
 * [Chainlink](reference/chainlink.md)
