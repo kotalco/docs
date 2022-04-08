@@ -38,6 +38,10 @@
 * [🗂️ Filecoin](filecoin/README.md)
     * [Deploy Filecoin Node](filecoin/node.md)
 
+* [🌿 Stacks](stacks/README.md)
+    * [Deploy Stacks RPC Node](stacks/rpc.md)
+    * [Deploy Stacks Miner Node](stacks/miner.md)
+
 ## Reference
 
 * [Bitcoin](reference/bitcoin.md)
@@ -48,3 +52,4 @@
 * [Polkadot](reference/polkadot.md)
 * [IPFS](reference/ipfs.md)
 * [Filecoin](reference/filecoin.md)
+* [Stacks](reference/stacks.md)
