@@ -16,39 +16,47 @@
 
 ### network
 
-`network`
+`network` is Bitcoin network to join and sync. Possible values are `mainnet` and `testnet`.
+
+`network` is immutable, can't be changed after node is created.
 
 ### p2pPort
 
-`p2pPort`
+`p2pPort` is p2p communications port.
 
 ### p2pHost
 
-`p2pHost`
+`p2pHost` is p2p communications host.
 
 ### rpc
 
-`rpc`
+`rpc` enables JSON-RPC server.
 
 ### rpcPort
 
-`rpcPort`
+`rpcPort` is JSON-RPC server port.
 
 ### rpcHost
 
-`rpcHost`
+`rpcHost` is JSON-RPC server host.
 
 ### rpcUsers
 
-`rpcUsers`
+`rpcUsers` is a list of JSON-RPC users credentials:
+
+| Syntax                                    | Type   | Description                                           |
+| ----------------------------------------- | ------ | ----------------------------------------------------- |
+| [username](#username)                     | string | JSON-RPC user name                                    |
+| [passwordSecretName](#passwordsecretname) | string | Kubernetes secret name holding JSON-RPC user password |
+
 
 ### wallet
 
-`wallet`
+`wallet` loads local wallet and enables wallet RPC calls.
 
 ### txIndex
 
-`txIndex`
+`txIndex` maintains a full transaction index.
 
 ### resources
 
