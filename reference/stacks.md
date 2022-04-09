@@ -16,7 +16,7 @@
 
 ### network
 
-`network` is Bitcoin network to join and sync. Possible values are `mainnet` and `testnet`.
+`network` is Stacks network to join and sync. Possible values are `mainnet` and `testnet`.
 
 `network` is immutable, can't be changed after node is created.
 
