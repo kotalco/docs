@@ -44,10 +44,10 @@
 
 `rpcUsers` is a list of JSON-RPC users credentials:
 
-| Syntax                                    | Type   | Description                                           |
-| ----------------------------------------- | ------ | ----------------------------------------------------- |
-| [username](#username)                     | string | JSON-RPC user name                                    |
-| [passwordSecretName](#passwordsecretname) | string | Kubernetes secret name holding JSON-RPC user password |
+| Syntax              | Type   | Description                                           |
+| ------------------- | ------ | ----------------------------------------------------- |
+| [username           | string | JSON-RPC user name                                    |
+| [passwordSecretName | string | Kubernetes secret name holding JSON-RPC user password |
 
 
 ### wallet
