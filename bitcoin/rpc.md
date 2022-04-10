@@ -119,13 +119,17 @@ kubectl port-forward bitcoin-node-0 8332
 In another terminal window call `getblockhash` JSON-RPC method to get the genesis block hash:
 
 ```bash
-curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "getblockhash", "params": [0]}' 0.0.0.0:8332
+curl --user "kotal:s3cr3t" --data-binary '{"jsonrpc": "1.0", "id": 1, "method": "getblockhash", "params": [0]}' -H 'content-type: text/plain;' http://0.0.0.0:8332
 ```
 
 You will get JSON result similar to the following:
 
 ```json
-{"result":"000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f","error":null,"id":"1"}
+{
+  "result":"000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
+  "error":null,
+  "id":1
+}
 ```
 
 Finally you can delete the node by:
