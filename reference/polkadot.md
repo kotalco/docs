@@ -2,6 +2,9 @@
 
 | Syntax                                                | Type    | Description                                                        | Default                               |
 | ----------------------------------------------------- | ------- | ------------------------------------------------------------------ | ------------------------------------- |
+| [image](#image)                                       | string  | Polkadot node client image                                         | last stable and tested client         |
+| [extraArgs](#extraargs)                               | array   | Extra arguments to pass down to the node client                    |                                       |
+| [replicas](#replicas)                                 | number  | number of replicas                                                 | 1                                     |
 | [network](#network) <sup>required</sup>               | string  | polkadot network/chain to join and sync                            |                                       |
 | [p2pPort](#p2pport)                                   | string  | p2p protocol tcp port                                              | 30333                                 |
 | [nodePrivateKeySecretName](#nodeprivatekeysecretname) | string  | Kubernetes secret name holding node Ed25519 private key            |                                       |
@@ -9,6 +12,7 @@
 | [syncMode](#syncmode)                                 | string  | blockchain synchronization mode                                    | full                                  |
 | [pruning](#pruning)                                   | boolean | whether to keep only recent or all blocks                          | false                                 |
 | [retainedBlocks](#retainedblocks)                     | number  | number of blocks to keep state for                                 | 256                                   |
+| [database](#database)                                 | string  | database backend                                                   | auto                                  |
 | [logging](#logging)                                   | string  | logging verboisty level                                            | info                                  |
 | [telemetry](#telemetry)                               | boolean | enables connecting to telemetry server                             | false                                 |
 | [telemetryURL](#telemetryurl)                         | string  | telemetry service URL                                              | wss://telemetry.polkadot.io/submit/ 0 |
@@ -21,6 +25,35 @@
 | [corsDomains](#corsdomains)                           | array   | browser origins allowed to access the JSON-RPC HTTP and WS servers | all                                   |
 | [resources](#resources)                               | object  | node compute and storage resources to alloacte                     |                                       |
 
+### image
+
+`image` is polkadot node client image. Kotal dashboard uses image information published [here](https://github.com/kotalco/images/blob/master/releases.json).
+
+### extraArgs
+
+`extraArgs` are extra arguments to pass down to the node client. This can be useful if kotal doesn't support something you're inttersted in.
+
+```yaml
+# these extra arguments will be passed as follow to the client
+# --arg1 val1 --toggle --arg2 val2
+extraArgs:
+  "--arg1": val1
+  "--toggle": ""
+  "--arg2": val2
+```
+
+{% hint style="info" %}
+Note that `extraArgs` adds arguments only, and doesn't remove arguments. Future release will support removing arguments. Use this feature with care.
+{% endhint %}
+
+### replicas
+
+`replicas` is number of replicas. Accepted values are 0 and 1 only.
+
+{% hint style="info" %}
+`replicas` is used to start and shutdown node gracefully.
+{% endhint %}
+
 ### network
 
 `network` is the polkadot network/chain to join and sync. Possible values are `polkadot`, `kusama`, `rococo`, `westend` and other chains supported by [Parity Polkadot](https://github.com/paritytech/polkadot) client.
@@ -28,7 +61,6 @@
 ### p2pPort
 
 `p2pPort` is p2p protocol tcp port.
-
 
 ### nodePrivateKeySecretName
 
@@ -71,10 +103,13 @@ Node must sync blocks in archive mode `pruning: false` if validator is enabled.
 
 `retainedBlocks` is the number of blocks to keep state for. It's only considered if `.spec.pruning` is set to `true`.
 
+### database
+
+`database` is database backend. Possible values are `auto`, `paritydb` or `rocksdb`.
+
 ### logging
 
 `logging` is logging verboisty level. Available logging levels are `error`, `warn`, `info`, `debug`, and `trace`.
-
 
 ### telemetry
 
@@ -89,7 +124,7 @@ Node must sync blocks in archive mode `pruning: false` if validator is enabled.
 `prometheus` exposes prometheus exporter endpoint.
 
 ### prometheusPort
- 
+
 `prometheusPort` is prometheus exporter port
 
 ### rpc
