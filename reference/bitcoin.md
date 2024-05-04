@@ -46,8 +46,8 @@
 
 | Syntax              | Type   | Description                                           |
 | ------------------- | ------ | ----------------------------------------------------- |
-| [username           | string | JSON-RPC user name                                    |
-| [passwordSecretName | string | Kubernetes secret name holding JSON-RPC user password |
+| username           | string | JSON-RPC user name                                    |
+| passwordSecretName | string | Kubernetes secret name holding JSON-RPC user password |
 
 
 ### wallet
